@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>iptables端口重定向 | 运维</title>
+  <title>SNAT源地址转换 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="当局域网PC访问internet的数据包到达网关服务器时，会先进行路由选择；若发现该数据包需要从外网借口向外转发，则将其源IP地址修改为网关的外网借口地址，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables端口重定向">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/iptables端口重定向/index.html">
+<meta property="og:title" content="SNAT源地址转换">
+<meta property="og:url" content="http://yoursite.com/2015/06/25/SNAT源地址转换/index.html">
 <meta property="og:site_name" content="运维">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-14T17:02:19.000Z">
+<meta property="og:description" content="当局域网PC访问internet的数据包到达网关服务器时，会先进行路由选择；若发现该数据包需要从外网借口向外转发，则将其源IP地址修改为网关的外网借口地址，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。">
+<meta property="og:updated_time" content="2016-03-14T17:17:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptables端口重定向">
-<meta name="twitter:description">
+<meta name="twitter:title" content="SNAT源地址转换">
+<meta name="twitter:description" content="当局域网PC访问internet的数据包到达网关服务器时，会先进行路由选择；若发现该数据包需要从外网借口向外转发，则将其源IP地址修改为网关的外网借口地址，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-iptables端口重定向" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-SNAT源地址转换" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/iptables端口重定向/" class="article-date">
-  	<time datetime="2016-03-14T17:02:19.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2015/06/25/SNAT源地址转换/" class="article-date">
+  	<time datetime="2015-06-24T16:07:00.811Z" itemprop="datePublished">2015-06-25</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iptables端口重定向
+      SNAT源地址转换
     </h1>
   
 
@@ -180,6 +180,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -188,7 +192,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>当局域网PC访问internet的数据包到达网关服务器时，会<strong>先进行路由选择</strong>；若发现该数据包需要从外网借口向外转发，则<strong>将其源IP地址修改为网关的外网借口地址</strong>，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。</p>
+</blockquote>
+<a id="more"></a>
+<p><br></p>
+<h2 id="打开路由转发"><a href="#打开路由转发" class="headerlink" title="打开路由转发"></a>打开路由转发</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysctl.conf</span><br><span class="line">net.ipv4.ip_forward = 1 ; 0为关闭</span><br><span class="line">sysctl -p   #读取修改后的配置</span><br><span class="line">其对应文件/proc/sys/net/ipv4/ip_forward</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="设置SNAT"><a href="#设置SNAT" class="headerlink" title="设置SNAT"></a>设置SNAT</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o eth0 -j SNAT --to-source 外网IP </span><br><span class="line"></span><br><span class="line">如果没有固定的外网IP，可以使用如下方式</span><br><span class="line">	iptables -t nat -A POSTROUTING -s 192.168.10.0/24 -o ppp0 -j MASQUERADE </span><br><span class="line">	iptables -t nat -A POSTROUTING -s 192.168.10.0/24  -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -197,9 +209,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2015/06/25/TCP三次握手/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          TCP三次握手
+        
+      </div>
+    </a>
   
-    <a href="/2015/06/25/变量/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shell变量应用</div>
+  
+    <a href="/2015/06/25/OSI参考模型/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OSI参考模型</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -234,7 +255,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iptables端口重定向" data-title="iptables端口重定向" data-url="http://yoursite.com/2016/03/15/iptables端口重定向/"></div>
+	<div class="ds-thread" data-thread-key="SNAT源地址转换" data-title="SNAT源地址转换" data-url="http://yoursite.com/2015/06/25/SNAT源地址转换/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

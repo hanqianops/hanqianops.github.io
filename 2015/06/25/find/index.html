@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>iptables端口重定向 | 运维</title>
+  <title>find查找系统文件 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables端口重定向">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/iptables端口重定向/index.html">
+<meta property="og:title" content="find查找系统文件">
+<meta property="og:url" content="http://yoursite.com/2015/06/25/find/index.html">
 <meta property="og:site_name" content="运维">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-14T17:02:19.000Z">
+<meta property="og:description" content="Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。">
+<meta property="og:updated_time" content="2016-04-02T12:15:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptables端口重定向">
-<meta name="twitter:description">
+<meta name="twitter:title" content="find查找系统文件">
+<meta name="twitter:description" content="Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-iptables端口重定向" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-find" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/iptables端口重定向/" class="article-date">
-  	<time datetime="2016-03-14T17:02:19.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2015/06/25/find/" class="article-date">
+  	<time datetime="2015-06-24T16:07:00.817Z" itemprop="datePublished">2015-06-25</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iptables端口重定向
+      find查找系统文件
     </h1>
   
 
@@ -180,6 +180,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -188,7 +192,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。<br><a id="more"></a></p>
+</blockquote>
+<p><br></p>
+<h1 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h1><p>find [范围]  [条件]</p>
+<ul>
+<li>-name 按文件名   </li>
+<li>-perm 按权限</li>
+<li>-user 按属主   </li>
+<li>-group 按属组</li>
+<li>-nouser  查找无有效属主的文件</li>
+<li>-nogroup 查找无有效属组的文件</li>
+<li>-path 路径</li>
+<li>-mtime -n/+n   &emsp;&emsp;&emsp;&emsp;<code>-3 3天之内</code>  <code>+3 3天前</code></li>
+<li>-type 按文件类型查找。<code>b 块设备</code> <code>d 目录</code> <code>f 文件</code> <code>l 符号链接文件</code> </li>
+<li>-size -n/+n 按文件大小查找</li>
+</ul>
+<h3 id="查找14-00到15-00之间"><a href="#查找14-00到15-00之间" class="headerlink" title="查找14:00到15:00之间"></a>查找14:00到15:00之间</h3><ul>
+<li>find . -newermt ‘2016-02-21 14:00’ ! -newermt ‘2016-02-21 15:00’</li>
+</ul>
+<h3 id="匹配0-9开头的所有文件，排除1-5开头的"><a href="#匹配0-9开头的所有文件，排除1-5开头的" class="headerlink" title="匹配0-9开头的所有文件，排除1-5开头的"></a>匹配0-9开头的所有文件，排除1-5开头的</h3><ul>
+<li>find  -name “[0-9]<em>“ ! -name “[1-5]</em>“  </li>
+</ul>
+<h3 id="指定查找的最大目录层数"><a href="#指定查找的最大目录层数" class="headerlink" title="指定查找的最大目录层数"></a>指定查找的最大目录层数</h3><ul>
+<li>find . -maxdepth 1 -type d</li>
+</ul>
+<p><code>-maxdepth 1 ：表示只列出第一层目录</code><br><code>-maxdepth 2 : 列出目录到第二层，以此类推</code></p>
+<p>还有一个有意思的参数：-mindepth  （最小目录数）<br>也就是说，-mindepth 5  就代表只列出有5层以上的目录</p>
+
       
     </div>
     
@@ -197,9 +229,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2015/06/25/grep/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          grep文本搜索
+        
+      </div>
+    </a>
   
-    <a href="/2015/06/25/变量/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shell变量应用</div>
+  
+    <a href="/2015/06/25/Tomcat-Server-Script/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Tomcat Server Script</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -234,7 +275,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iptables端口重定向" data-title="iptables端口重定向" data-url="http://yoursite.com/2016/03/15/iptables端口重定向/"></div>
+	<div class="ds-thread" data-thread-key="find" data-title="find查找系统文件" data-url="http://yoursite.com/2015/06/25/find/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

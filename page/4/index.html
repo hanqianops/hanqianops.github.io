@@ -156,11 +156,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-MySQL跳转" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-SNAT源地址转换" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/29/MySQL跳转/" class="article-date">
-  	<time datetime="2015-12-28T16:27:35.138Z" itemprop="datePublished">2015-12-29</time>
+      <a href="/2015/06/25/SNAT源地址转换/" class="article-date">
+  	<time datetime="2015-06-24T16:07:00.811Z" itemprop="datePublished">2015-06-25</time>
 </a>
     </div>
   
@@ -173,7 +173,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/29/MySQL跳转/">MySQL跳转</a>
+      <a class="article-title" href="/2015/06/25/SNAT源地址转换/">SNAT源地址转换</a>
     </h1>
   
 
@@ -183,7 +183,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>iptables 跳转后端到mysql数据库上<br>
+<p>当局域网PC访问internet的数据包到达网关服务器时，会<strong>先进行路由选择</strong>；若发现该数据包需要从外网借口向外转发，则<strong>将其源IP地址修改为网关的外网借口地址</strong>，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。</p>
+</blockquote>
       
     </div>
     
@@ -198,129 +199,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2015/12/29/MySQL跳转/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DNAT目标地址转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/29/DNAT目标地址转换/" class="article-date">
-  	<time datetime="2015-12-28T16:27:35.130Z" itemprop="datePublished">2015-12-29</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/12/29/DNAT目标地址转换/">DNAT目标地址转换</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>作用是根据指定条件修改目标IP地址和端口，使用PREROUTING链，实现外网访问内网。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/12/29/DNAT目标地址转换/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-TCP三次握手" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/06/25/TCP三次握手/" class="article-date">
-  	<time datetime="2015-06-24T16:05:13.239Z" itemprop="datePublished">2015-06-25</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/25/TCP三次握手/">TCP三次握手</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>TCP是面向连接的、可靠的进程到进程通信的协议。<br>提供全双工服务，即数据可在同一时间双向传输<br>每一个TCP都有发送缓存和接受缓存，用来临时存储数据<br>TCP将若干个字节构成一个分组，叫做报文段，封装在IP数据包中<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/06/25/TCP三次握手/#more">more >></a>
+          <a  href="/2015/06/25/SNAT源地址转换/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -343,7 +222,7 @@
   
     <div class="article-meta">
       <a href="/2015/06/25/OSI参考模型/" class="article-date">
-  	<time datetime="2015-06-24T16:00:34.537Z" itemprop="datePublished">2015-06-25</time>
+  	<time datetime="2015-06-24T16:07:00.810Z" itemprop="datePublished">2015-06-25</time>
 </a>
     </div>
   
@@ -382,6 +261,128 @@
       
         <p class="article-more-link">
           <a  href="/2015/06/25/OSI参考模型/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MySQL跳转" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/25/MySQL跳转/" class="article-date">
+  	<time datetime="2015-06-24T16:07:00.808Z" itemprop="datePublished">2015-06-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/25/MySQL跳转/">MySQL跳转</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>iptables 跳转后端到mysql数据库上<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/25/MySQL跳转/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-DNAT目标地址转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/25/DNAT目标地址转换/" class="article-date">
+  	<time datetime="2015-06-24T16:07:00.801Z" itemprop="datePublished">2015-06-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/06/25/DNAT目标地址转换/">DNAT目标地址转换</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>作用是根据指定条件修改目标IP地址和端口，使用PREROUTING链，实现外网访问内网。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/06/25/DNAT目标地址转换/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

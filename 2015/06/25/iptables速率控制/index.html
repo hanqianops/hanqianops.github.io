@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>iptables端口重定向 | 运维</title>
+  <title>iptables速率控制 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="本功能需要limit模块实现">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables端口重定向">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/iptables端口重定向/index.html">
+<meta property="og:title" content="iptables速率控制">
+<meta property="og:url" content="http://yoursite.com/2015/06/25/iptables速率控制/index.html">
 <meta property="og:site_name" content="运维">
-<meta property="og:description">
-<meta property="og:updated_time" content="2016-03-14T17:02:19.000Z">
+<meta property="og:description" content="本功能需要limit模块实现">
+<meta property="og:updated_time" content="2016-03-14T17:12:35.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptables端口重定向">
-<meta name="twitter:description">
+<meta name="twitter:title" content="iptables速率控制">
+<meta name="twitter:description" content="本功能需要limit模块实现">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -155,11 +155,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-iptables端口重定向" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-iptables速率控制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/15/iptables端口重定向/" class="article-date">
-  	<time datetime="2016-03-14T17:02:19.000Z" itemprop="datePublished">2016-03-15</time>
+      <a href="/2015/06/25/iptables速率控制/" class="article-date">
+  	<time datetime="2015-06-24T16:07:00.828Z" itemprop="datePublished">2015-06-25</time>
 </a>
     </div>
   
@@ -172,7 +172,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      iptables端口重定向
+      iptables速率控制
     </h1>
   
 
@@ -180,6 +180,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -188,7 +192,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>本功能需要limit模块实现<br><a id="more"></a><br><br></p>
+<h1 id="限制ping的速度"><a href="#限制ping的速度" class="headerlink" title="限制ping的速度"></a>限制ping的速度</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p icmp -m limit --limit 6/m --limit-burst 8 -j ACCEPT</span><br><span class="line">iptables -A INPUT -p icmp -j DROP</span><br><span class="line"></span><br><span class="line">--limit-burst 8    达到8个包后进入限速模式</span><br><span class="line">--limit 6/m    限速模式，每分钟六个即12秒一个</span><br><span class="line"></span><br><span class="line">1.limit模块是对速率方面进行匹配，限制与否在于-j后面的target</span><br><span class="line">2.--limit-burst表示触发--limit限制的最大值</span><br><span class="line">3.--limit-burst可以理解为通行证，--limit-burst表示最开始通行证的数量，当通行证使用完后就会触发limit模块的--limit限制，此时的--limit可以理解为多长时间发放一个通行证（只有拥有通行证的人才可以匹配-j后面的target，没有获得通行证的人直接匹配下一条规则），--limit发放通行证的最大个数为之前--limit-burst所定义的值</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><br></p>
+<h1 id="限定80号端口每秒钟连接数为1-峰值为3"><a href="#限定80号端口每秒钟连接数为1-峰值为3" class="headerlink" title="限定80号端口每秒钟连接数为1,峰值为3"></a>限定80号端口每秒钟连接数为1,峰值为3</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -d 172.16.100.1 -p tcp --dport 80 -m limit --limit 1/second --limit-burst 3 -j ACCEPT</span><br><span class="line">iptables -A INPUT -d 172.16.100.1 -p tcp --dport 80  -j DROP</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -197,9 +207,18 @@
     
 <nav id="article-nav">
   
+    <a href="/2015/06/25/nat表的日志查看方法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          记录nat表的日志
+        
+      </div>
+    </a>
   
-    <a href="/2015/06/25/变量/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">shell变量应用</div>
+  
+    <a href="/2015/06/25/iptables自定义链/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iptables自定义链</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -234,7 +253,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iptables端口重定向" data-title="iptables端口重定向" data-url="http://yoursite.com/2016/03/15/iptables端口重定向/"></div>
+	<div class="ds-thread" data-thread-key="iptables速率控制" data-title="iptables速率控制" data-url="http://yoursite.com/2015/06/25/iptables速率控制/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

@@ -4,23 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>vmstat | Hexo</title>
+  <title>vmstat监控系统性能 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况 、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。
-vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----  r  b">
+  <meta name="description" content="vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。相比top，我可以看到整个机器的CPU,内存,IO的使用情况，而不是单单看到各个进程的CPU使用率和内存使用率">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vmstat">
+<meta property="og:title" content="vmstat监控系统性能">
 <meta property="og:url" content="http://yoursite.com/2016/04/02/vmstat/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况 、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。
-vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----  r  b">
-<meta property="og:updated_time" content="2016-04-02T10:29:56.000Z">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。相比top，我可以看到整个机器的CPU,内存,IO的使用情况，而不是单单看到各个进程的CPU使用率和内存使用率">
+<meta property="og:updated_time" content="2016-04-02T12:16:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vmstat">
-<meta name="twitter:description" content="vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况 、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。
-vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----  r  b">
+<meta name="twitter:title" content="vmstat监控系统性能">
+<meta name="twitter:description" content="vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。相比top，我可以看到整个机器的CPU,内存,IO的使用情况，而不是单单看到各个进程的CPU使用率和内存使用率">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -41,7 +38,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
 		</hgroup>
 
 		
@@ -100,7 +97,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/secure/" style="font-size: 10px;">secure</a> <a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 15px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -118,7 +115,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -128,7 +125,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">John Doe</h1>
+			  <h1 class="header-author">破浪</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -158,7 +155,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
   
     <div class="article-meta">
       <a href="/2016/04/02/vmstat/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.290Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T12:27:02.877Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -171,7 +168,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
         
   
     <h1 class="article-title" itemprop="name">
-      vmstat
+      vmstat监控系统性能
     </h1>
   
 
@@ -191,23 +188,26 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p> vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况<br> 、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。</p>
-<h2 id="vmstat-1-5"><a href="#vmstat-1-5" class="headerlink" title="vmstat 1 5"></a>vmstat 1 5</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出如下：</span><br><span class="line"></span><br><span class="line"> procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----</span><br><span class="line">  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line">  1  0 159464 174568  48476 161344    0    2    38    46   36  132  0  0 99  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0     0   45   96  0  1 99  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0    16   39   91  0  0 100  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0     0   46   90  0  0 100  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0     0   40   92  0  0 100  0  0</span><br></pre></td></tr></table></figure>
-<h4 id="procs"><a href="#procs" class="headerlink" title="procs"></a>procs</h4><ul>
+        <blockquote>
+<p> vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。相比top，我可以看到整个机器的CPU,内存,IO的使用情况，而不是单单看到各个进程的CPU使用率和内存使用率<br><a id="more"></a></p>
+</blockquote>
+<p><br></p>
+<h1 id="执行vmstat-1-5，输出如下"><a href="#执行vmstat-1-5，输出如下" class="headerlink" title="执行vmstat 1 5，输出如下:"></a>执行vmstat 1 5，输出如下:</h1> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----</span><br><span class="line"> r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line"> 1  0 159464 174568  48476 161344    0    2    38    46   36  132  0  0 99  0  0</span><br><span class="line"> 0  0 159464 174568  48476 161344    0    0     0     0   45   96  0  1 99  0  0</span><br><span class="line"> 0  0 159464 174568  48476 161344    0    0     0    16   39   91  0  0 100  0  0</span><br><span class="line"> 0  0 159464 174568  48476 161344    0    0     0     0   46   90  0  0 100  0  0</span><br><span class="line"> 0  0 159464 174568  48476 161344    0    0     0     0   40   92  0  0 100  0  0</span><br></pre></td></tr></table></figure>
+<h3 id="procs"><a href="#procs" class="headerlink" title="procs"></a>procs</h3><ul>
 <li>r：等待运行的进程数。当这个值超过了CPU数目，就会出现CPU瓶颈了</li>
-<li>b：处于非中断睡眠状态的进程数。（进程阻塞）<h4 id="memory（单位：KB）"><a href="#memory（单位：KB）" class="headerlink" title="memory（单位：KB）"></a>memory（单位：KB）</h4></li>
+<li>b：处于非中断睡眠状态的进程数。（进程阻塞）<h3 id="memory（单位：KB）"><a href="#memory（单位：KB）" class="headerlink" title="memory（单位：KB）"></a>memory（单位：KB）</h3></li>
 <li>swpd：虚拟内存使用情况。</li>
 <li>free：空闲的内存。</li>
 <li>buff：被用来作为缓存的内存数量。一般对块设备的读写才需要缓冲。</li>
 <li>cache: 作为page cache的内存数量，一般作为文件系统的cache，如果cache较大，说明用到cache的文件较多，如果此时IO中bi比较小，说明文件系统效率比较好。 </li>
 </ul>
-<h4 id="swap（单位：KB-s）"><a href="#swap（单位：KB-s）" class="headerlink" title="swap（单位：KB/s）"></a>swap（单位：KB/s）</h4><ul>
+<h3 id="swap（单位：KB-s）"><a href="#swap（单位：KB-s）" class="headerlink" title="swap（单位：KB/s）"></a>swap（单位：KB/s）</h3><ul>
 <li>si：从内存写入swap数量，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。。</li>
-<li>so：从swap写入内存数量，同上。<h4 id="io"><a href="#io" class="headerlink" title="io"></a>io</h4></li>
+<li>so：从swap写入内存数量，同上。<h3 id="io"><a href="#io" class="headerlink" title="io"></a>io</h3></li>
 <li>bi：块设备每秒接收的块数量，这里的块设备是指系统上所有的磁盘和其他块设备，默认块大小是1024byte</li>
-<li>bo：块设备每秒发送的块数量，例如我们读取文件，bo就要大于0。bi和bo一般都要接近0，不然就是IO过于频繁，需要调整。<h4 id="system"><a href="#system" class="headerlink" title="system"></a>system</h4></li>
+<li>bo：块设备每秒发送的块数量，例如我们读取文件，bo就要大于0。bi和bo一般都要接近0，不然就是IO过于频繁，需要调整。<h3 id="system"><a href="#system" class="headerlink" title="system"></a>system</h3></li>
 <li>in：每秒的中断数，包括时钟中断。</li>
-<li>cs：cs 每秒上下文切换次数，例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目,例如在apache和nginx这种web服务器中，我们一般做性能测试时会进行几千并发甚至几万并发的测试，选择web服务器的进程可以由进程或者线程的峰值一直下调，压测，直到cs到一个比较小的值，这个进程和线程数就是比较合适的值了。系统调用也是，每次调用系统函数，我们的代码就会进入内核空间，导致上下文切换，这个是很耗资源，也要尽量避免频繁调用系统函数。上下文切换次数过多表示你的CPU大部分浪费在上下文切换，导致CPU干正经事的时间少了，CPU没有充分利用，是不可取的。<h4 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h4></li>
+<li>cs：cs 每秒上下文切换次数，例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目,例如在apache和nginx这种web服务器中，我们一般做性能测试时会进行几千并发甚至几万并发的测试，选择web服务器的进程可以由进程或者线程的峰值一直下调，压测，直到cs到一个比较小的值，这个进程和线程数就是比较合适的值了。系统调用也是，每次调用系统函数，我们的代码就会进入内核空间，导致上下文切换，这个是很耗资源，也要尽量避免频繁调用系统函数。上下文切换次数过多表示你的CPU大部分浪费在上下文切换，导致CPU干正经事的时间少了，CPU没有充分利用，是不可取的。<h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h3></li>
 <li>按CPU的总使用百分比来显示。</li>
 <li>us：CPU使用时间。</li>
 <li>sy：CPU系统使用时间。如果太高，表示系统调用时间长，例如是IO操作频繁。</li>
@@ -230,14 +230,14 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          变量
+          shell变量应用
         
       </div>
     </a>
   
   
     <a href="/2016/04/02/top/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">top</div>
+      <div class="article-nav-title">top实时分析系统性能</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -272,7 +272,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="vmstat" data-title="vmstat" data-url="http://yoursite.com/2016/04/02/vmstat/"></div>
+	<div class="ds-thread" data-thread-key="vmstat" data-title="vmstat监控系统性能" data-url="http://yoursite.com/2016/04/02/vmstat/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -297,7 +297,7 @@ vmstat 1 5 12345678910输出如下： procs -----------memory---------- ---swap-
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 John Doe
+    		&copy; 2016 破浪
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

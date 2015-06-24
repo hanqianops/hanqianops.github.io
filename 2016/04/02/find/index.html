@@ -4,56 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>find | Hexo</title>
+  <title>find查找系统文件 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="find 用于查找目录或文件
-
-命令参数find [范围]  [条件]
-
--name 按文件名   
--perm 按权限
--user 按属主   
--group 按属组
--nouser  查找无有效属主的文件
--nogroup 查找无有效属组的文件
--path 路径
--mtime -n/+n   &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;-3 3天之内  +3 3天前
--type 按文件类">
+  <meta name="description" content="Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="find">
+<meta property="og:title" content="find查找系统文件">
 <meta property="og:url" content="http://yoursite.com/2016/04/02/find/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="find 用于查找目录或文件
-
-命令参数find [范围]  [条件]
-
--name 按文件名   
--perm 按权限
--user 按属主   
--group 按属组
--nouser  查找无有效属主的文件
--nogroup 查找无有效属组的文件
--path 路径
--mtime -n/+n   &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;-3 3天之内  +3 3天前
--type 按文件类">
-<meta property="og:updated_time" content="2016-04-02T11:33:39.000Z">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。">
+<meta property="og:updated_time" content="2016-04-02T12:15:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="find">
-<meta name="twitter:description" content="find 用于查找目录或文件
-
-命令参数find [范围]  [条件]
-
--name 按文件名   
--perm 按权限
--user 按属主   
--group 按属组
--nouser  查找无有效属主的文件
--nogroup 查找无有效属组的文件
--path 路径
--mtime -n/+n   &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;-3 3天之内  +3 3天前
--type 按文件类">
+<meta name="twitter:title" content="find查找系统文件">
+<meta name="twitter:description" content="Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -74,7 +38,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
 		</hgroup>
 
 		
@@ -133,7 +97,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/secure/" style="font-size: 10px;">secure</a> <a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 15px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -151,7 +115,7 @@
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -161,7 +125,7 @@
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">John Doe</h1>
+			  <h1 class="header-author">破浪</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -191,7 +155,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/02/find/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.282Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T12:27:02.864Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -204,7 +168,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      find
+      find查找系统文件
     </h1>
   
 
@@ -225,9 +189,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>find 用于查找目录或文件</p>
+<p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。<br><a id="more"></a></p>
 </blockquote>
-<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><p>find [范围]  [条件]</p>
+<p><br></p>
+<h1 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h1><p>find [范围]  [条件]</p>
 <ul>
 <li>-name 按文件名   </li>
 <li>-perm 按权限</li>
@@ -240,13 +205,13 @@
 <li>-type 按文件类型查找。<code>b 块设备</code> <code>d 目录</code> <code>f 文件</code> <code>l 符号链接文件</code> </li>
 <li>-size -n/+n 按文件大小查找</li>
 </ul>
-<h4 id="查找14-00到15-00之间"><a href="#查找14-00到15-00之间" class="headerlink" title="查找14:00到15:00之间"></a>查找14:00到15:00之间</h4><ul>
+<h3 id="查找14-00到15-00之间"><a href="#查找14-00到15-00之间" class="headerlink" title="查找14:00到15:00之间"></a>查找14:00到15:00之间</h3><ul>
 <li>find . -newermt ‘2016-02-21 14:00’ ! -newermt ‘2016-02-21 15:00’</li>
 </ul>
-<h4 id="匹配0-9开头的所有文件，排除1-5开头的"><a href="#匹配0-9开头的所有文件，排除1-5开头的" class="headerlink" title="匹配0-9开头的所有文件，排除1-5开头的"></a>匹配0-9开头的所有文件，排除1-5开头的</h4><ul>
+<h3 id="匹配0-9开头的所有文件，排除1-5开头的"><a href="#匹配0-9开头的所有文件，排除1-5开头的" class="headerlink" title="匹配0-9开头的所有文件，排除1-5开头的"></a>匹配0-9开头的所有文件，排除1-5开头的</h3><ul>
 <li>find  -name “[0-9]<em>“ ! -name “[1-5]</em>“  </li>
 </ul>
-<h4 id="指定查找的最大目录层数"><a href="#指定查找的最大目录层数" class="headerlink" title="指定查找的最大目录层数"></a>指定查找的最大目录层数</h4><ul>
+<h3 id="指定查找的最大目录层数"><a href="#指定查找的最大目录层数" class="headerlink" title="指定查找的最大目录层数"></a>指定查找的最大目录层数</h3><ul>
 <li>find . -maxdepth 1 -type d</li>
 </ul>
 <p><code>-maxdepth 1 ：表示只列出第一层目录</code><br><code>-maxdepth 2 : 列出目录到第二层，以此类推</code></p>
@@ -264,7 +229,7 @@
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          grep
+          grep文本搜索
         
       </div>
     </a>
@@ -306,7 +271,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="find" data-title="find" data-url="http://yoursite.com/2016/04/02/find/"></div>
+	<div class="ds-thread" data-thread-key="find" data-title="find查找系统文件" data-url="http://yoursite.com/2016/04/02/find/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -331,7 +296,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 John Doe
+    		&copy; 2016 破浪
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

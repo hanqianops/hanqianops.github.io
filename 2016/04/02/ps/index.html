@@ -4,41 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ps | Hexo</title>
+  <title>ps了解系统进程运行情况 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="linux上进程有5种状态:
-运行(正在运行或在运行队列中等待) 
-中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
-不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
-僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
-停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
-
-ps命令标">
+  <meta name="description" content="ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ps">
+<meta property="og:title" content="ps了解系统进程运行情况">
 <meta property="og:url" content="http://yoursite.com/2016/04/02/ps/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="linux上进程有5种状态:
-运行(正在运行或在运行队列中等待) 
-中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
-不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
-僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
-停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
-
-ps命令标">
-<meta property="og:updated_time" content="2016-04-02T10:29:47.000Z">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多">
+<meta property="og:updated_time" content="2016-04-02T12:15:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ps">
-<meta name="twitter:description" content="linux上进程有5种状态:
-运行(正在运行或在运行队列中等待) 
-中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
-不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
-僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
-停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
-
-ps命令标">
+<meta name="twitter:title" content="ps了解系统进程运行情况">
+<meta name="twitter:description" content="ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -59,7 +38,7 @@ ps命令标">
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
 		</hgroup>
 
 		
@@ -118,7 +97,7 @@ ps命令标">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/secure/" style="font-size: 10px;">secure</a> <a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 15px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -136,7 +115,7 @@ ps命令标">
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -146,7 +125,7 @@ ps命令标">
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">John Doe</h1>
+			  <h1 class="header-author">破浪</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -176,7 +155,7 @@ ps命令标">
   
     <div class="article-meta">
       <a href="/2016/04/02/ps/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.286Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T12:27:02.873Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -189,7 +168,7 @@ ps命令标">
         
   
     <h1 class="article-title" itemprop="name">
-      ps
+      ps了解系统进程运行情况
     </h1>
   
 
@@ -209,21 +188,24 @@ ps命令标">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="linux上进程有5种状态"><a href="#linux上进程有5种状态" class="headerlink" title="linux上进程有5种状态:"></a>linux上进程有5种状态:</h4><ol>
+        <blockquote>
+<p>ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。<br>要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多的资源等等。总之大部分信息都是可以通过执行该命令得到的。<br><a id="more"></a><br><br></p>
+<h1 id="linux上进程有5种状态"><a href="#linux上进程有5种状态" class="headerlink" title="linux上进程有5种状态:"></a>linux上进程有5种状态:</h1><ol>
 <li>运行(正在运行或在运行队列中等待) </li>
 <li>中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) </li>
 <li>不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) </li>
 <li>僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) </li>
 <li>停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) </li>
 </ol>
-<h2 id="ps命令标识进程的5种状态码"><a href="#ps命令标识进程的5种状态码" class="headerlink" title="ps命令标识进程的5种状态码:"></a>ps命令标识进程的5种状态码:</h2><ol>
+</blockquote>
+<h1 id="ps命令标识进程的5种状态码"><a href="#ps命令标识进程的5种状态码" class="headerlink" title="ps命令标识进程的5种状态码:"></a>ps命令标识进程的5种状态码:</h1><ol>
 <li>D 不可中断 uninterruptible sleep (usually IO) </li>
 <li>R 运行 runnable (on run queue) </li>
 <li>S 中断 sleeping </li>
 <li>T 停止 traced or stopped </li>
 <li>Z 僵死 a defunct (”zombie”) process </li>
 </ol>
-<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><ul>
+<h1 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h1><ul>
 <li>a 当前终端下的所有进程,包括其他用户</li>
 <li>u 以用户为主输出进程信息</li>
 <li>x 显示当前用户在所有终端的进程信息</li>
@@ -232,13 +214,13 @@ ps命令标">
 <li>-f 使用完整的格式显示进程信息</li>
 </ul>
 <p>以上是常用的几个命令参数</p>
-<h2 id="常用的命令参数组合"><a href="#常用的命令参数组合" class="headerlink" title="常用的命令参数组合"></a>常用的命令参数组合</h2><h4 id="查看系统所有进程"><a href="#查看系统所有进程" class="headerlink" title="查看系统所有进程"></a>查看系统所有进程</h4><ul>
+<h2 id="常用的命令参数组合"><a href="#常用的命令参数组合" class="headerlink" title="常用的命令参数组合"></a>常用的命令参数组合</h2><h3 id="查看系统所有进程"><a href="#查看系统所有进程" class="headerlink" title="查看系统所有进程"></a>查看系统所有进程</h3><ul>
 <li>ps -ef </li>
 </ul>
-<h4 id="查看所有线程"><a href="#查看所有线程" class="headerlink" title="查看所有线程"></a>查看所有线程</h4><ul>
+<h3 id="查看所有线程"><a href="#查看所有线程" class="headerlink" title="查看所有线程"></a>查看所有线程</h3><ul>
 <li>ps xH</li>
 </ul>
-<h4 id="查看某个进程的线程"><a href="#查看某个进程的线程" class="headerlink" title="查看某个进程的线程"></a>查看某个进程的线程</h4><ul>
+<h3 id="查看某个进程的线程"><a href="#查看某个进程的线程" class="headerlink" title="查看某个进程的线程"></a>查看某个进程的线程</h3><ul>
 <li>ps -mp pid </li>
 <li>或者使用top命令： top -p pid -H</li>
 </ul>
@@ -264,14 +246,14 @@ ps命令标">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          top
+          top实时分析系统性能
         
       </div>
     </a>
   
   
-    <a href="/2016/04/02/grep/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">grep</div>
+    <a href="/2016/04/02/iptables/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">iptables应用</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -306,7 +288,7 @@ ps命令标">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ps" data-title="ps" data-url="http://yoursite.com/2016/04/02/ps/"></div>
+	<div class="ds-thread" data-thread-key="ps" data-title="ps了解系统进程运行情况" data-url="http://yoursite.com/2016/04/02/ps/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -331,7 +313,7 @@ ps命令标">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 John Doe
+    		&copy; 2016 破浪
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

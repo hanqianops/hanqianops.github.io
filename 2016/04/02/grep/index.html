@@ -4,56 +4,20 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>grep | Hexo</title>
+  <title>grep文本搜索 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="命令参数
-alias=’grep –color=auto’ 输出带颜色
--A3    打印匹配行下三行
--B3    打印匹配行上三行
--C3    打印匹配行上下三行
--c 输出匹配行的数量      
--i  忽略大小写
--n 显示行号              
--v  取反
--w 匹配整词              
--x  匹配整行
--r  递归搜索              
--E">
+  <meta name="description" content="Linux系统中grep命令是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹 配的行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达式版本，它的使用权限是所有用户。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="grep">
+<meta property="og:title" content="grep文本搜索">
 <meta property="og:url" content="http://yoursite.com/2016/04/02/grep/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="命令参数
-alias=’grep –color=auto’ 输出带颜色
--A3    打印匹配行下三行
--B3    打印匹配行上三行
--C3    打印匹配行上下三行
--c 输出匹配行的数量      
--i  忽略大小写
--n 显示行号              
--v  取反
--w 匹配整词              
--x  匹配整行
--r  递归搜索              
--E">
-<meta property="og:updated_time" content="2016-04-02T11:22:33.000Z">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="Linux系统中grep命令是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹 配的行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达式版本，它的使用权限是所有用户。">
+<meta property="og:updated_time" content="2016-04-02T12:15:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="grep">
-<meta name="twitter:description" content="命令参数
-alias=’grep –color=auto’ 输出带颜色
--A3    打印匹配行下三行
--B3    打印匹配行上三行
--C3    打印匹配行上下三行
--c 输出匹配行的数量      
--i  忽略大小写
--n 显示行号              
--v  取反
--w 匹配整词              
--x  匹配整行
--r  递归搜索              
--E">
+<meta name="twitter:title" content="grep文本搜索">
+<meta name="twitter:description" content="Linux系统中grep命令是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹 配的行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达式版本，它的使用权限是所有用户。">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -74,7 +38,7 @@ alias=’grep –color=auto’ 输出带颜色
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
 		</hgroup>
 
 		
@@ -133,7 +97,7 @@ alias=’grep –color=auto’ 输出带颜色
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/secure/" style="font-size: 10px;">secure</a> <a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 15px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -151,7 +115,7 @@ alias=’grep –color=auto’ 输出带颜色
       <nav id="mobile-nav">
   	<div class="overlay">
   		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">John Doe</h1>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
@@ -161,7 +125,7 @@ alias=’grep –color=auto’ 输出带颜色
 			
 			</div>
 			<hgroup>
-			  <h1 class="header-author">John Doe</h1>
+			  <h1 class="header-author">破浪</h1>
 			</hgroup>
 			
 			<nav class="header-menu">
@@ -191,7 +155,7 @@ alias=’grep –color=auto’ 输出带颜色
   
     <div class="article-meta">
       <a href="/2016/04/02/grep/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.283Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T12:27:02.866Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -204,7 +168,7 @@ alias=’grep –color=auto’ 输出带颜色
         
   
     <h1 class="article-title" itemprop="name">
-      grep
+      grep文本搜索
     </h1>
   
 
@@ -224,7 +188,9 @@ alias=’grep –color=auto’ 输出带颜色
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><ul>
+        <blockquote>
+<p>Linux系统中grep命令是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹 配的行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达式版本，它的使用权限是所有用户。<br><a id="more"></a><br><br></p>
+<h1 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h1><ul>
 <li>alias=’grep –color=auto’ 输出带颜色</li>
 <li>-A3    打印匹配行下三行</li>
 <li>-B3    打印匹配行上三行</li>
@@ -246,6 +212,7 @@ alias=’grep –color=auto’ 输出带颜色
 <li>-s 不显示错误信息</li>
 <li>-I 递归搜索时忽略二进制文件</li>
 </ul>
+</blockquote>
 
       
     </div>
@@ -255,18 +222,18 @@ alias=’grep –color=auto’ 输出带颜色
     
 <nav id="article-nav">
   
-    <a href="/2016/04/02/ps/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/02/iptables/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          ps
+          iptables应用
         
       </div>
     </a>
   
   
     <a href="/2016/04/02/find/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">find</div>
+      <div class="article-nav-title">find查找系统文件</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -301,7 +268,7 @@ alias=’grep –color=auto’ 输出带颜色
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="grep" data-title="grep" data-url="http://yoursite.com/2016/04/02/grep/"></div>
+	<div class="ds-thread" data-thread-key="grep" data-title="grep文本搜索" data-url="http://yoursite.com/2016/04/02/grep/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -326,7 +293,7 @@ alias=’grep –color=auto’ 输出带颜色
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 John Doe
+    		&copy; 2016 破浪
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

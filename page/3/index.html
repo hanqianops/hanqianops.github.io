@@ -82,6 +82,8 @@
 				        
 							<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 				        
+							<li><a href="/tags/nginx/index.html">Nginx</a></li>
+				        
 							<li><a href="/tags/secure/index.html">iptables</a></li>
 				        
 							<li><a href="/tags/shell/index.html">shell</a></li>
@@ -98,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/secure/" style="font-size: 20px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/ninx/" style="font-size: 10px;">ninx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统性能/" style="font-size: 12.5px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -138,6 +140,8 @@
 		        
 					<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 		        
+					<li><a href="/tags/nginx/index.html">Nginx</a></li>
+		        
 					<li><a href="/tags/secure/index.html">iptables</a></li>
 		        
 					<li><a href="/tags/shell/index.html">shell</a></li>
@@ -156,11 +160,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-grep" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ps" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/grep/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.251Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/ps/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.862Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -173,7 +177,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/grep/">grep文本搜索</a>
+      <a class="article-title" href="/2016/01/24/ps/">ps了解系统进程运行情况</a>
     </h1>
   
 
@@ -183,7 +187,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Linux系统中grep命令是一种强大的文本搜索工具，它能使用正则表达式搜索文本，并把匹 配的行打印出来。grep全称是Global Regular Expression Print，表示全局正则表达式版本，它的使用权限是所有用户。<br>
+<p>ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。<br>要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多的资源等等。总之大部分信息都是可以通过执行该命令得到的。<br>
       
     </div>
     
@@ -191,14 +195,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/grep/#more">more >></a>
+          <a  href="/2016/01/24/ps/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -217,11 +221,11 @@
 
 
   
-    <article id="post-find" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-nat表的日志查看方法" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/find/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.249Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/nat表的日志查看方法/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.860Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -234,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/find/">find查找系统文件</a>
+      <a class="article-title" href="/2016/01/24/nat表的日志查看方法/">记录nat表的日志</a>
     </h1>
   
 
@@ -244,129 +248,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Linux下find命令在目录结构中搜索文件，并执行指定的操作。Linux下find命令提供了相当多的查找条件，功能很强大。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/find/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-Tomcat-Server-Script" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/04/Tomcat-Server-Script/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.246Z" itemprop="datePublished">2016-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/Tomcat-Server-Script/">Tomcat Server Script</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Tomcat服务控制脚本，加入系统服务，使用service控制启动。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/Tomcat-Server-Script/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-TCP三次握手" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/04/TCP三次握手/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.245Z" itemprop="datePublished">2016-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/TCP三次握手/">TCP三次握手</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>TCP是面向连接的、可靠的进程到进程通信的协议。<br>提供全双工服务，即数据可在同一时间双向传输<br>每一个TCP都有发送缓存和接受缓存，用来临时存储数据<br>TCP将若干个字节构成一个分组，叫做报文段，封装在IP数据包中<br>
+<p>使用rsyslog记录iptables nat表的处理日志<br>
       
     </div>
     
@@ -381,7 +263,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/TCP三次握手/#more">more >></a>
+          <a  href="/2016/01/24/nat表的日志查看方法/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -400,11 +282,11 @@
 
 
   
-    <article id="post-SNAT源地址转换" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-iptables速率控制" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/SNAT源地址转换/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.244Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/iptables速率控制/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.859Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -417,7 +299,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/SNAT源地址转换/">SNAT源地址转换</a>
+      <a class="article-title" href="/2016/01/24/iptables速率控制/">iptables速率控制</a>
     </h1>
   
 
@@ -427,8 +309,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>当局域网PC访问internet的数据包到达网关服务器时，会<strong>先进行路由选择</strong>；若发现该数据包需要从外网借口向外转发，则<strong>将其源IP地址修改为网关的外网借口地址</strong>，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。</p>
-</blockquote>
+<p>本功能需要limit模块实现<br>
       
     </div>
     
@@ -443,7 +324,133 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/SNAT源地址转换/#more">more >></a>
+          <a  href="/2016/01/24/iptables速率控制/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iptables自定义链" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/iptables自定义链/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.859Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/24/iptables自定义链/">iptables自定义链</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>iptables -N aaa    创建自定义链</li>
+<li>iptables -A INPUT -j aaa   引用到INPUT链</li>
+<li>iptables -X      清除自定义链</li>
+</ul>
+<p>自定义链处理SYN攻击<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -N syn-flood</span><br><span class="line">iptables -A INPUT -i eth0 -syn -j syn-flood</span><br><span class="line">iptables -A syn-flood -m limit -limit 5000/s -limit-burst 200 -j RETURN</span><br><span class="line">iptables -A syn-flood -j DROP</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-iptables状态连接" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/01/24/iptables状态连接/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.857Z" itemprop="datePublished">2016-01-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/24/iptables状态连接/">iptables状态连接</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
+<li>NEW：已经或将启动的新链接</li>
+<li>ESTABLISHED：已经建立的链接</li>
+<li>RELATED：正在启动的新链接</li>
+<li>INVALID：非法或无法识别的链接
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/01/24/iptables状态连接/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -464,7 +471,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 </div>

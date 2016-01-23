@@ -82,6 +82,8 @@
 				        
 							<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 				        
+							<li><a href="/tags/nginx/index.html">Nginx</a></li>
+				        
 							<li><a href="/tags/secure/index.html">iptables</a></li>
 				        
 							<li><a href="/tags/shell/index.html">shell</a></li>
@@ -98,7 +100,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/secure/" style="font-size: 20px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/ninx/" style="font-size: 10px;">ninx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统性能/" style="font-size: 12.5px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -138,6 +140,8 @@
 		        
 					<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 		        
+					<li><a href="/tags/nginx/index.html">Nginx</a></li>
+		        
 					<li><a href="/tags/secure/index.html">iptables</a></li>
 		        
 					<li><a href="/tags/shell/index.html">shell</a></li>
@@ -156,11 +160,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-变量" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-限制连接频率" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/变量/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.265Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/限制连接频率/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.879Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -173,7 +177,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/变量/">shell变量应用</a>
+      <a class="article-title" href="/2016/01/24/限制连接频率/">限制连接频率</a>
     </h1>
   
 
@@ -183,7 +187,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>shell中的变量一般是以字母或者下划线开头，后面可以跟任意长度的字符，数字或者下划线。<br>
+<p>需要启用limit_req_zone模块<br>
       
     </div>
     
@@ -191,14 +195,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/变量/#more">more >></a>
+          <a  href="/2016/01/24/限制连接频率/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -217,11 +221,11 @@
 
 
   
-    <article id="post-vmstat" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-限制传输速度" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/vmstat/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.264Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/限制传输速度/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.878Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -234,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/vmstat/">vmstat监控系统性能</a>
+      <a class="article-title" href="/2016/01/24/限制传输速度/">限制传输速度</a>
     </h1>
   
 
@@ -244,7 +248,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p> vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。相比top，我可以看到整个机器的CPU,内存,IO的使用情况，而不是单单看到各个进程的CPU使用率和内存使用率<br>
+<p>Limit_traffic_rate模块提供了一种方法，通过客户端IP或下载URL来限制总的下载速度。项目地址：<a href="https://github.com/bigplum/Nginx-limit-traffic-rate-module">https://github.com/bigplum/Nginx-limit-traffic-rate-module</a><br>
       
     </div>
     
@@ -252,14 +256,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/vmstat/#more">more >></a>
+          <a  href="/2016/01/24/限制传输速度/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -278,11 +282,11 @@
 
 
   
-    <article id="post-top" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-负载均衡" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/top/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.264Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/负载均衡/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.876Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -295,7 +299,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/top/">top实时分析系统性能</a>
+      <a class="article-title" href="/2016/01/24/负载均衡/">负载均衡</a>
     </h1>
   
 
@@ -304,8 +308,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态.如果在前台执行该命令,它将独占前台,直到用户终止该程序为止。top命令提供了实时的对系统处理器的状态监视。<br>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">upstream qq.com &#123;</span><br><span class="line">		#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。</span><br><span class="line">	server 192.168.80.121:80 weight=3;</span><br><span class="line">	server 192.168.80.122:80 weight=2;</span><br><span class="line">	server 192.168.80.123:80 weight=3;</span><br><span class="line">&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">		listen 80;</span><br><span class="line">		server_name localhost;</span><br><span class="line"></span><br><span class="line">		location / &#123;</span><br><span class="line">			proxy_pass http://qq.com;</span><br><span class="line">			proxy_set_header Host $host；</span><br><span class="line">			proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">			proxy_set_header X-Forward-For $proxy_add_x_forward_for; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="upstream支持的负载均衡算法"><a href="#upstream支持的负载均衡算法" class="headerlink" title="upstream支持的负载均衡算法"></a>upstream支持的负载均衡算法</h1><ul>
+<li>轮询（默认）：每个请求按时间顺序逐一分配到不同的后端服务器，如果后端某台服务器宕机，故障系统被自动剔除，使用户访问不受影响。Weight 指定轮询权值，Weight值越大，分配到的访问机率越高，主要用于后端每个服务器性能不均的情况下。</li>
+<li>ip_hash：每个请求按访问IP的hash结果分配，这样来自同一个IP的访客固定访问一个后端服务器，有效解决了动态网页存在的session共享问题。</li>
+<li>fair：这是比上面两个更加智能的负载均衡算法。此种算法可以依据页面大小和加载时间长短智能地进行负载均衡，也就是根据后端服务器的响应时间来分配请求，响应时间短的优先分配。Nginx本身是不支持fair的，如果需要使用这种调度算法，必须下载Nginx的upstream_fair模块。</li>
+<li>url_hash：此方法按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，可以进一步提高后端缓存服务器的效率。Nginx本身是不支持url_hash的，如果需要使用这种调度算法，必须安装Nginx 的hash软件包。</li>
+</ul>
+<h1 id="upstream支持的状态参数"><a href="#upstream支持的状态参数" class="headerlink" title="upstream支持的状态参数"></a>upstream支持的状态参数</h1><ul>
+<li>down，表示当前的server暂时不参与负载均衡。</li>
+<li>backup，预留的备份机器。当其他所有的非backup机器出现故障或者忙的时候，才会请求backup机器，因此这台机器的压力最轻。</li>
+<li>max_fails，允许请求失败的次数，默认为1。当超过最大次数时，返回proxy_next_upstream 模块定义的错误。</li>
+<li>fail_timeout，在经历了max_fails次失败后，暂停服务的时间。max_fails可以和fail_timeout一起使用</li>
+</ul>
+<h1 id="一下参数可以保证客户端IP头不变"><a href="#一下参数可以保证客户端IP头不变" class="headerlink" title="一下参数可以保证客户端IP头不变"></a>一下参数可以保证客户端IP头不变</h1><ul>
+<li>proxy_set_header Host $host；</li>
+<li>proxy_set_header X-Real-IP $remote_addr;</li>
+<li>proxy_set_header X-Forward-For $proxy_add_x_forward_for; </li>
+</ul>
+
       
     </div>
     
@@ -313,15 +334,11 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/top/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -339,11 +356,11 @@
 
 
   
-    <article id="post-ps" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-缓存服务器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/ps/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.262Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/缓存服务器/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.875Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -356,7 +373,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/ps/">ps了解系统进程运行情况</a>
+      <a class="article-title" href="/2016/01/24/缓存服务器/">缓存服务器</a>
     </h1>
   
 
@@ -366,7 +383,14 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>ps命令用来列出系统中当前运行的那些进程。ps命令列出的是当前那些进程的快照，就是执行ps命令的那个时刻的那些进程，如果想要动态的显示进程信息，就可以使用top命令。<br>要对进程进行监测和控制，首先必须要了解当前进程的情况，也就是需要查看当前进程，而 ps 命令就是最基本同时也是非常强大的进程查看命令。使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多的资源等等。总之大部分信息都是可以通过执行该命令得到的。<br>
+<p>将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力</p>
+</blockquote>
+<h1 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    client_max_body_size 10m; #允许客户端请求的最大单文件字节数</span><br><span class="line">    client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，</span><br><span class="line">    proxy_max_temp_file_size 1024m;      #最大缓存文件1G；设置为0，表示不使用临时缓存。</span><br><span class="line">    proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)</span><br><span class="line">    proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)</span><br><span class="line">    proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)</span><br><span class="line">    proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小</span><br><span class="line">    proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置</span><br><span class="line">    proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）</span><br><span class="line">    proxy_temp_file_write_size 64k; #设定缓存文件夹大小，大于这个值，将从upstream服务器请求 </span><br><span class="line">proxy_temp_path /home/temp;</span><br><span class="line">proxy_cache_path /home/cache levels=1:2 keys_zone=cache_one:200m inactive=1d max_size=30g;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       192.168.10.2:80;</span><br><span class="line">    server_name  192.168.10.2_;</span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line"> location  / &#123;</span><br><span class="line">        proxy_redirect          off;</span><br><span class="line">        proxy_set_header        Host            $host;</span><br><span class="line">        proxy_set_header        X-Real-IP       $remote_addr;</span><br><span class="line">        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_connect_timeout   180;</span><br><span class="line">        proxy_send_timeout      180;</span><br><span class="line">        proxy_read_timeout      180;</span><br><span class="line">        proxy_buffer_size       128k;</span><br><span class="line">        proxy_buffers           4 128k;</span><br><span class="line">        proxy_busy_buffers_size 128k;</span><br><span class="line">        proxy_temp_file_write_size 128k;</span><br><span class="line">  proxy_cache cache_one;</span><br><span class="line">  proxy_cache_valid 200 304 1h;</span><br><span class="line">  proxy_cache_valid 404 1m;</span><br><span class="line">        proxy_cache_key $uri$is_args$args;</span><br><span class="line">        add_header  Nginx-Cache &quot;$upstream_cache_status&quot;;</span><br><span class="line">  proxy_pass http://backend;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#只允许本机和1.1.1.1的机器清除缓存。URL为http://q.w.e/qq.jpg,通过访问http://1.1.1.1/purge/qq.jpg就可以清除该URL的缓存</span><br><span class="line">        location  ~ /purge(/.*)&#123;</span><br><span class="line">            allow 127.0.0.1;</span><br><span class="line">            deny all;</span><br><span class="line">            porxy_cache_purge  cache_one  $host $1 $is_args $args;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">需要编译purge模块</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h1 id="统计缓存命中率"><a href="#统计缓存命中率" class="headerlink" title="统计缓存命中率"></a>统计缓存命中率</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$upstream_cache_status函数，自然可以将命中状态写入到日志中</span><br><span class="line">$upstream_cache_status包含以下几种状态：</span><br><span class="line">·MISS 未命中，请求被传送到后端</span><br><span class="line">·HIT 缓存命中</span><br><span class="line">·EXPIRED 缓存已经过期请求被传送到后端</span><br><span class="line">·UPDATING 正在更新缓存，将使用旧的应答</span><br><span class="line">·STALE 后端将得到过期的应答</span><br><span class="line"></span><br><span class="line">统计命中率</span><br><span class="line"> awk &apos;&#123;if($NF~/HIT/)a++&#125;END&#123;printf &quot;%d%&quot;,a/NR*100&#125;&apos; access.log</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -374,15 +398,11 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/ps/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -400,11 +420,11 @@
 
 
   
-    <article id="post-nat表的日志查看方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-缓存图片" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/nat表的日志查看方法/" class="article-date">
-  	<time datetime="2016-04-04T07:29:46.261Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/01/24/缓存图片/" class="article-date">
+  	<time datetime="2016-01-23T16:16:58.873Z" itemprop="datePublished">2016-01-24</time>
 </a>
     </div>
   
@@ -417,7 +437,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/nat表的日志查看方法/">记录nat表的日志</a>
+      <a class="article-title" href="/2016/01/24/缓存图片/">缓存图片</a>
     </h1>
   
 
@@ -427,7 +447,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>使用rsyslog记录iptables nat表的处理日志<br>
+<p>这个是缓存在客户端的，使用expires定义缓存时间<br>
       
     </div>
     
@@ -435,14 +455,14 @@
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/nat表的日志查看方法/#more">more >></a>
+          <a  href="/2016/01/24/缓存图片/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -463,7 +483,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

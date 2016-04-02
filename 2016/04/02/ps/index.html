@@ -4,21 +4,39 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hello World | Hexo</title>
+  <title>ps | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="linux上进程有5种状态:
+运行(正在运行或在运行队列中等待) 
+中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
+不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
+僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
+停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
+
+ps命令标">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2016/04/07/hello-world/index.html">
+<meta property="og:title" content="ps">
+<meta property="og:url" content="http://yoursite.com/2016/04/02/ps/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-03-29T04:52:47.000Z">
+<meta property="og:description" content="linux上进程有5种状态:
+运行(正在运行或在运行队列中等待) 
+中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
+不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
+僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
+停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
+
+ps命令标">
+<meta property="og:updated_time" content="2016-04-02T10:29:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="ps">
+<meta name="twitter:description" content="linux上进程有5种状态:
+运行(正在运行或在运行队列中等待) 
+中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) 
+不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) 
+僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) 
+停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) 
+
+ps命令标">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -84,6 +102,10 @@ Quick">
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
+							<li><a href="/tags/系统性能/index.html">系统管理</a></li>
+				        
+							<li><a href="/tags/shell/index.html">shell</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
@@ -96,7 +118,7 @@ Quick">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -134,6 +156,10 @@ Quick">
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
+					<li><a href="/tags/系统性能/index.html">系统管理</a></li>
+		        
+					<li><a href="/tags/shell/index.html">shell</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
@@ -146,11 +172,11 @@ Quick">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-ps" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/hello-world/" class="article-date">
-  	<time datetime="2016-04-07T00:17:10.513Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/02/ps/" class="article-date">
+  	<time datetime="2016-04-02T11:33:43.286Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -163,7 +189,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      ps
     </h1>
   
 
@@ -171,6 +197,10 @@ Quick">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -179,15 +209,48 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h4 id="linux上进程有5种状态"><a href="#linux上进程有5种状态" class="headerlink" title="linux上进程有5种状态:"></a>linux上进程有5种状态:</h4><ol>
+<li>运行(正在运行或在运行队列中等待) </li>
+<li>中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) </li>
+<li>不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) </li>
+<li>僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) </li>
+<li>停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) </li>
+</ol>
+<h2 id="ps命令标识进程的5种状态码"><a href="#ps命令标识进程的5种状态码" class="headerlink" title="ps命令标识进程的5种状态码:"></a>ps命令标识进程的5种状态码:</h2><ol>
+<li>D 不可中断 uninterruptible sleep (usually IO) </li>
+<li>R 运行 runnable (on run queue) </li>
+<li>S 中断 sleeping </li>
+<li>T 停止 traced or stopped </li>
+<li>Z 僵死 a defunct (”zombie”) process </li>
+</ol>
+<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><ul>
+<li>a 当前终端下的所有进程,包括其他用户</li>
+<li>u 以用户为主输出进程信息</li>
+<li>x 显示当前用户在所有终端的进程信息</li>
+<li>-e 显示系统所有进程信息</li>
+<li>-l 长格式显示进程信息</li>
+<li>-f 使用完整的格式显示进程信息</li>
+</ul>
+<p>以上是常用的几个命令参数</p>
+<h2 id="常用的命令参数组合"><a href="#常用的命令参数组合" class="headerlink" title="常用的命令参数组合"></a>常用的命令参数组合</h2><h4 id="查看系统所有进程"><a href="#查看系统所有进程" class="headerlink" title="查看系统所有进程"></a>查看系统所有进程</h4><ul>
+<li>ps -ef </li>
+</ul>
+<h4 id="查看所有线程"><a href="#查看所有线程" class="headerlink" title="查看所有线程"></a>查看所有线程</h4><ul>
+<li>ps xH</li>
+</ul>
+<h4 id="查看某个进程的线程"><a href="#查看某个进程的线程" class="headerlink" title="查看某个进程的线程"></a>查看某个进程的线程</h4><ul>
+<li>ps -mp pid </li>
+<li>或者使用top命令： top -p pid -H</li>
+</ul>
+<h2 id="命令输出字段含义"><a href="#命令输出字段含义" class="headerlink" title="命令输出字段含义"></a>命令输出字段含义</h2><ul>
+<li>VSZ: 占用虚拟内存       </li>
+<li>RSS： 占用常驻内存</li>
+<li>TTY:在那个终端允许，？表示未知或不需要终端</li>
+<li>START: 启用该进程的时间  </li>
+<li>TIME:占用CPU时间</li>
+<li>PSR：表示占用的哪个CPU</li>
+<li>STAT项：<code>S 休眠</code>  <code>R运行</code>   <code>Z僵死(杀父进程)</code>   <code>&lt;高优先级</code>   <code>N低优先级</code> <code>s父进程</code>   <code>+前台运行</code></li>
+</ul>
 
       
     </div>
@@ -197,9 +260,18 @@ Quick">
     
 <nav id="article-nav">
   
+    <a href="/2016/04/02/top/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          top
+        
+      </div>
+    </a>
   
-    <a href="/2016/04/02/用vmstat监控Linux系统的整体性能/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+  
+    <a href="/2016/04/02/grep/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">grep</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -234,7 +306,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://yoursite.com/2016/04/07/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="ps" data-title="ps" data-url="http://yoursite.com/2016/04/02/ps/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

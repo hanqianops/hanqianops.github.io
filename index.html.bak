@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Hexo</title>
+  <title>运维笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
@@ -37,7 +37,7 @@
 		</a>
 
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
 		</hgroup>
 
 		
@@ -82,8 +82,6 @@
 				        
 							<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 				        
-							<li><a href="/tags/shell/index.html">shell</a></li>
-				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
@@ -96,7 +94,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/shell/" style="font-size: 20px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -136,8 +134,6 @@
 		        
 					<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 		        
-					<li><a href="/tags/shell/index.html">shell</a></li>
-		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
@@ -152,103 +148,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-变量" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/02/变量/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.291Z" itemprop="datePublished">2016-04-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/02/变量/">变量</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="系统变量"><a href="#系统变量" class="headerlink" title="系统变量"></a>系统变量</h2><ul>
-<li>PATH：shell使用$PATH的环境变量操作、查找命令</li>
-<li>PWD：记录当前的目录路径</li>
-<li>OLDPWD：记录旧的目录。即用户所处的前一个目录</li>
-<li>HOME:记录当前用户的根目录</li>
-<li>SHELL:默认shell</li>
-<li>USER和UID：用户名和用户ID</li>
-<li>PPID:当前进程的父进程号。 </li>
-<li>$$:自身进程号 PID</li>
-<li>IFS:用于指定shell域分隔符，默认为空格、换行符和制表符。<code>IFS=$&#39;\n&#39;  IFS=:   IFS=:;</code></li>
-</ul>
-<h2 id="用户变量文件"><a href="#用户变量文件" class="headerlink" title="用户变量文件"></a>用户变量文件</h2><ul>
-<li>/etc/profile  每个用户登入是都执行</li>
-<li>/etc/bashr    每个用户打开shell时执行</li>
-<li>.bash_profile 每次登录时执行</li>
-<li>.bash_login   每次注册时执行</li>
-<li>.bash_bashrc  当前用户打开shell时执行</li>
-</ul>
-<h4 id="关于以上几个文件，用户的登录时的执行顺序"><a href="#关于以上几个文件，用户的登录时的执行顺序" class="headerlink" title="关于以上几个文件，用户的登录时的执行顺序"></a>关于以上几个文件，用户的登录时的执行顺序</h4><ul>
-<li><code>/etc/profile</code> —&gt; <code>/etc/profile.d/*.sh</code> —&gt; <code>.bash_profile</code> —&gt; <code>.bashrc</code> —&gt; <code>/etc/bashrc</code> —&gt; <code>.bash_login</code></li>
-</ul>
-<h2 id="变量应用"><a href="#变量应用" class="headerlink" title="变量应用"></a>变量应用</h2><blockquote>
-<p>在写shell脚本中，使用最多就是变量的应用，下面介绍一些变量的用法</p>
-</blockquote>
-<h4 id="首先说明一下几种关于引号的使用"><a href="#首先说明一下几种关于引号的使用" class="headerlink" title="首先说明一下几种关于引号的使用"></a>首先说明一下几种关于引号的使用</h4><ul>
-<li>双引号：解释其中的特殊字符的特殊含义</li>
-<li>单引号：以字面意思显示其中的特殊字符</li>
-<li>反引号：执行其中的命令</li>
-</ul>
-<h4 id="定义变量的方法"><a href="#定义变量的方法" class="headerlink" title="定义变量的方法"></a>定义变量的方法</h4><ul>
-<li>aa=213</li>
-<li>bb=”12 3”</li>
-<li>cc=$(pwd)</li>
-<li>dd=’12$3’</li>
-</ul>
-<h4 id="提取变量"><a href="#提取变量" class="headerlink" title="提取变量"></a>提取变量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">file=/dir1/dir2/dir3/hello.txt</span><br><span class="line"><span class="variable">$&#123;file#*/&#125;</span>:从左到右数拿掉第一个 / 后的内容，dir1/dir2/dir3/hello.txt</span><br><span class="line"><span class="variable">$&#123;file##*/&#125;</span>:从左到右数拿掉最后一个 / 后的内容，hello.txt</span><br><span class="line"><span class="variable">$&#123;file%/*&#125;</span>:从右到左数拿掉第一个 / 后的内容，/dir1/dir2/dir3</span><br><span class="line"><span class="variable">$&#123;file%%/*&#125;</span>:从右到左数拿掉最后一个 / 后的内容，空值</span><br><span class="line"></span><br><span class="line">注：</span><br><span class="line">    <span class="comment">#从左边数，去掉左边的，一个是最小匹配，两个是最大匹配 </span></span><br><span class="line">    %从右边数，去掉右边的</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;aa:(-1)&#125;</span>： 取变量最后一个字符,输出“t”</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 变量替换</span></span><br><span class="line"></span><br><span class="line">```bash</span><br><span class="line">file=/dir1/dir2/dir3/hello.txt</span><br><span class="line"><span class="variable">$&#123;file/dir/path&#125;</span>： 将第一个dir替换为path</span><br><span class="line"><span class="variable">$&#123;file//dir/path&#125;</span>： 将全部dir替换为path</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-vmstat" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/02/vmstat/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.290Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T10:30:14.367Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -330,7 +234,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/02/top/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.288Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T10:30:14.365Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -442,7 +346,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/02/ps/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.286Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T10:30:14.361Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -536,11 +440,11 @@
 
 
   
-    <article id="post-grep" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/02/grep/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.283Z" itemprop="datePublished">2016-04-02</time>
+      <a href="/2016/04/02/hello-world/" class="article-date">
+  	<time datetime="2016-04-02T10:30:14.359Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -553,7 +457,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/02/grep/">grep</a>
+      <a class="article-title" href="/2016/04/02/hello-world/">Hello World</a>
     </h1>
   
 
@@ -562,28 +466,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><ul>
-<li>alias=’grep –color=auto’ 输出带颜色</li>
-<li>-A3    打印匹配行下三行</li>
-<li>-B3    打印匹配行上三行</li>
-<li>-C3    打印匹配行上下三行</li>
-<li>-c 输出匹配行的数量      </li>
-<li>-i  忽略大小写</li>
-<li>-n 显示行号              </li>
-<li>-v  取反</li>
-<li>-w 匹配整词              </li>
-<li>-x  匹配整行</li>
-<li>-r  递归搜索              </li>
-<li>-E  支持正则表达式</li>
-<li>-o    只显示匹配的字符</li>
-<li>-F  不支持正则表达式,按字面意思匹配</li>
-<li>-h 不显示文件名</li>
-<li>-l 只显示文件名</li>
-<li>-m1 只匹配一次</li>
-<li>-q 静默模式，不输出任何结果，错误除外，以true或false状态退出  </li>
-<li>-s 不显示错误信息</li>
-<li>-I 递归搜索时忽略二进制文件</li>
-</ul>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 
       
     </div>
@@ -591,93 +482,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-find" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/02/find/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.282Z" itemprop="datePublished">2016-04-02</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/02/find/">find</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>find 用于查找目录或文件</p>
-</blockquote>
-<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><p>find [范围]  [条件]</p>
-<ul>
-<li>-name 按文件名   </li>
-<li>-perm 按权限</li>
-<li>-user 按属主   </li>
-<li>-group 按属组</li>
-<li>-nouser  查找无有效属主的文件</li>
-<li>-nogroup 查找无有效属组的文件</li>
-<li>-path 路径</li>
-<li>-mtime -n/+n   &emsp;&emsp;&emsp;&emsp;<code>-3 3天之内</code>  <code>+3 3天前</code></li>
-<li>-type 按文件类型查找。<code>b 块设备</code> <code>d 目录</code> <code>f 文件</code> <code>l 符号链接文件</code> </li>
-<li>-size -n/+n 按文件大小查找</li>
-</ul>
-<h4 id="查找14-00到15-00之间"><a href="#查找14-00到15-00之间" class="headerlink" title="查找14:00到15:00之间"></a>查找14:00到15:00之间</h4><ul>
-<li>find . -newermt ‘2016-02-21 14:00’ ! -newermt ‘2016-02-21 15:00’</li>
-</ul>
-<h4 id="匹配0-9开头的所有文件，排除1-5开头的"><a href="#匹配0-9开头的所有文件，排除1-5开头的" class="headerlink" title="匹配0-9开头的所有文件，排除1-5开头的"></a>匹配0-9开头的所有文件，排除1-5开头的</h4><ul>
-<li>find  -name “[0-9]<em>“ ! -name “[1-5]</em>“  </li>
-</ul>
-<h4 id="指定查找的最大目录层数"><a href="#指定查找的最大目录层数" class="headerlink" title="指定查找的最大目录层数"></a>指定查找的最大目录层数</h4><ul>
-<li>find . -maxdepth 1 -type d</li>
-</ul>
-<p><code>-maxdepth 1 ：表示只列出第一层目录</code><br><code>-maxdepth 2 : 列出目录到第二层，以此类推</code></p>
-<p>还有一个有意思的参数：-mindepth  （最小目录数）<br>也就是说，-mindepth 5  就代表只列出有5层以上的目录</p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
       
 
       
@@ -701,7 +505,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/02/Tomcat-Server-Script/" class="article-date">
-  	<time datetime="2016-04-02T11:33:43.275Z" itemprop="datePublished">2016-04-02</time>
+  	<time datetime="2016-04-02T10:30:14.354Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -733,10 +537,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
       
 
       

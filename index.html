@@ -80,6 +80,8 @@
 				        
 							<li><a href="/archives">所有文章</a></li>
 				        
+							<li><a href="/tags/系统性能/index.html">系统管理</a></li>
+				        
 						</ul>
 					</nav>
 					<nav class="header-nav">
@@ -92,7 +94,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						
+						<a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -130,6 +132,8 @@
 		        
 					<li><a href="/archives">所有文章</a></li>
 		        
+					<li><a href="/tags/系统性能/index.html">系统管理</a></li>
+		        
 		        <div class="clearfix"></div>
 				</ul>
 			</nav>
@@ -144,11 +148,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-vmstat的使用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/hello-world/" class="article-date">
-  	<time datetime="2016-04-07T00:17:10.513Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/02/vmstat的使用/" class="article-date">
+  	<time datetime="2016-04-02T10:26:03.635Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -161,7 +165,299 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/04/02/vmstat的使用/">vmstat的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> vmstat是一个相当全面的性能分析工具，通过它可以观察系统的进程状态、内存使用情况、虚拟内存的使用情况<br> 、磁盘的I/O、中断、上下文切换、CPU的使用情况等性能信息。</p>
+<h2 id="vmstat-1-5"><a href="#vmstat-1-5" class="headerlink" title="vmstat 1 5"></a>vmstat 1 5</h2> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">输出如下：</span><br><span class="line"></span><br><span class="line"> procs -----------memory---------- ---swap-- -----io---- --system-- -----cpu-----</span><br><span class="line">  r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st</span><br><span class="line">  1  0 159464 174568  48476 161344    0    2    38    46   36  132  0  0 99  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0     0   45   96  0  1 99  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0    16   39   91  0  0 100  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0     0   46   90  0  0 100  0  0</span><br><span class="line">  0  0 159464 174568  48476 161344    0    0     0     0   40   92  0  0 100  0  0</span><br></pre></td></tr></table></figure>
+<h4 id="procs"><a href="#procs" class="headerlink" title="procs"></a>procs</h4><ul>
+<li>r：等待运行的进程数。当这个值超过了CPU数目，就会出现CPU瓶颈了</li>
+<li>b：处于非中断睡眠状态的进程数。（进程阻塞）<h4 id="memory（单位：KB）"><a href="#memory（单位：KB）" class="headerlink" title="memory（单位：KB）"></a>memory（单位：KB）</h4></li>
+<li>swpd：虚拟内存使用情况。</li>
+<li>free：空闲的内存。</li>
+<li>buff：被用来作为缓存的内存数量。一般对块设备的读写才需要缓冲。</li>
+<li>cache: 作为page cache的内存数量，一般作为文件系统的cache，如果cache较大，说明用到cache的文件较多，如果此时IO中bi比较小，说明文件系统效率比较好。 </li>
+</ul>
+<h4 id="swap（单位：KB-s）"><a href="#swap（单位：KB-s）" class="headerlink" title="swap（单位：KB/s）"></a>swap（单位：KB/s）</h4><ul>
+<li>si：从内存写入swap数量，如果这个值大于0，表示物理内存不够用或者内存泄露了，要查找耗内存进程解决掉。。</li>
+<li>so：从swap写入内存数量，同上。<h4 id="io"><a href="#io" class="headerlink" title="io"></a>io</h4></li>
+<li>bi：块设备每秒接收的块数量，这里的块设备是指系统上所有的磁盘和其他块设备，默认块大小是1024byte</li>
+<li>bo：块设备每秒发送的块数量，例如我们读取文件，bo就要大于0。bi和bo一般都要接近0，不然就是IO过于频繁，需要调整。<h4 id="system"><a href="#system" class="headerlink" title="system"></a>system</h4></li>
+<li>in：每秒的中断数，包括时钟中断。</li>
+<li>cs：cs 每秒上下文切换次数，例如我们调用系统函数，就要进行上下文切换，线程的切换，也要进程上下文切换，这个值要越小越好，太大了，要考虑调低线程或者进程的数目,例如在apache和nginx这种web服务器中，我们一般做性能测试时会进行几千并发甚至几万并发的测试，选择web服务器的进程可以由进程或者线程的峰值一直下调，压测，直到cs到一个比较小的值，这个进程和线程数就是比较合适的值了。系统调用也是，每次调用系统函数，我们的代码就会进入内核空间，导致上下文切换，这个是很耗资源，也要尽量避免频繁调用系统函数。上下文切换次数过多表示你的CPU大部分浪费在上下文切换，导致CPU干正经事的时间少了，CPU没有充分利用，是不可取的。<h4 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h4></li>
+<li>按CPU的总使用百分比来显示。</li>
+<li>us：CPU使用时间。</li>
+<li>sy：CPU系统使用时间。如果太高，表示系统调用时间长，例如是IO操作频繁。</li>
+<li>id：闲置时间。</li>
+<li>wa 等待IO CPU时间。</li>
+</ul>
+<p>标准情况下r和b值应该为：r&lt;5，b≈0。</p>
+<p>如果user%+sys%&lt;70%则表示系统性能较好，</p>
+<p>如果user%+sys%&gt;=85%或以上，这表示系统性能比较糟糕，这时就要对系统进行全方面检查了。</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-top的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/02/top的使用/" class="article-date">
+  	<time datetime="2016-04-02T10:26:03.633Z" itemprop="datePublished">2016-04-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/02/top的使用/">top的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="top"><a href="#top" class="headerlink" title="top"></a>top</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输出如下：</span><br><span class="line">top - 17:12:04 up 1 day,  2:45,  4 users,  load average: 0.00, 0.01, 0.00</span><br><span class="line">Tasks:  92 total,   1 running,  90 sleeping,   1 stopped,   0 zombie</span><br><span class="line">Cpu(s):  0.5%us,  0.2%sy,  0.0%ni, 99.2%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st</span><br><span class="line">Mem:   1004768k total,   823148k used,   181620k free,    92376k buffers</span><br><span class="line">Swap:  2031612k total,   170824k used,  1860788k free,    98156k cached</span><br><span class="line"></span><br><span class="line">   PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND                                 </span><br><span class="line">  1639 mysql     20   0 1249m 290m 1684 S  0.0 29.6   0:38.56 mysqld</span><br></pre></td></tr></table></figure>
+<h4 id="第一行"><a href="#第一行" class="headerlink" title="第一行"></a>第一行</h4><ul>
+<li><code>17:12:04</code>         当前系统时间</li>
+<li><code>1 day,  2:45</code> &emsp;&emsp;系统已经持续运行的时间</li>
+<li><code>4 users</code> &emsp;&emsp;&emsp;&emsp;当前有4个用户登录系统</li>
+<li><code>load average: 0.00, 0.01, 0.00</code> &emsp;&emsp;1分钟、5分钟、15分钟的负载情况。</li>
+</ul>
+<h4 id="第二行"><a href="#第二行" class="headerlink" title="第二行"></a>第二行</h4><ul>
+<li><code>92 total</code> &emsp;&emsp;&emsp;&emsp;系统现在有92个进程</li>
+<li><code>1 running</code> &emsp;&emsp;&emsp; 有1个正在运行</li>
+<li><code>90 sleeping</code> &emsp;&emsp; 90个在休眠状态</li>
+<li><code>1 stopped</code> &emsp;&emsp;&emsp; 有一个进程在停止状态</li>
+<li><code>0 zombie</code>   &emsp;&emsp;&emsp;&emsp;系统没有僵尸进程</li>
+</ul>
+<h4 id="第三行"><a href="#第三行" class="headerlink" title="第三行"></a>第三行</h4><ul>
+<li><code>0.5%us</code> &emsp;&emsp;&emsp;&emsp;用户占用CPU百分比</li>
+<li><code>0.2%sy</code> &emsp;&emsp;&emsp;&emsp;系统占用CPU百分比</li>
+<li><code>0.0%ni</code> &emsp;&emsp;&emsp;&emsp;改变过优先级的进程占用CPU的百分比</li>
+<li><code>99.2%id</code> &emsp;&emsp;&emsp;&emsp;空闲CPU百分比</li>
+<li><code>0.0% wa</code> &emsp;&emsp;&emsp;&emsp;IO等待占用CPU的百分比</li>
+<li><code>0.0% hi</code> &emsp;&emsp;&emsp;&emsp;硬中断（Hardware IRQ）占用CPU的百分比</li>
+<li><code>0.0% si</code>  &emsp;&emsp;&emsp;&emsp;软中断（Software Interrupts）占用CPU的百分比</li>
+</ul>
+<h4 id="第四行"><a href="#第四行" class="headerlink" title="第四行"></a>第四行</h4><ul>
+<li>内存情况：总内存、已使用内存、剩余内存、缓冲使用内存。</li>
+</ul>
+<h4 id="第五行"><a href="#第五行" class="headerlink" title="第五行"></a>第五行</h4><ul>
+<li>交换分区情况： swap总大小、已使用大小、剩余大小、缓存使用大小。</li>
+</ul>
+<h4 id="第六行"><a href="#第六行" class="headerlink" title="第六行"></a>第六行</h4><ul>
+<li><code>PID</code> &emsp;&emsp;&emsp;&emsp;进程id</li>
+<li><code>USER</code> &emsp;&emsp;&emsp;&emsp; 进程所有者</li>
+<li><code>PR</code> &emsp;&emsp;&emsp;&emsp; 进程优先级</li>
+<li><code>NI</code> &emsp;&emsp;&emsp;&emsp; nice值。负值表示高优先级，正值表示低优先级</li>
+<li><code>VIRT</code> &emsp;&emsp;&emsp;&emsp;进程使用的虚拟内存总量，单位kb。VIRT=SWAP+RES</li>
+<li><code>RES</code> &emsp;&emsp;&emsp;&emsp; 进程使用的、未被换出的物理内存大小，单位kb。</li>
+<li><code>RES</code> &emsp;&emsp;&emsp;&emsp;RES=CODE+DATA</li>
+<li><code>SHR</code> &emsp;&emsp;&emsp;&emsp;共享内存大小，单位kb。</li>
+<li><code>S</code> &emsp;&emsp;&emsp;&emsp; 进程状态。D=不可中断的睡眠状态 R=运行 S=睡眠 T=跟踪/停止 Z=僵尸进程</li>
+<li><code>%CPU</code> &emsp;&emsp;&emsp;&emsp;上次更新到现在的CPU时间占用百分比</li>
+<li><code>%MEM</code> &emsp;&emsp;&emsp;&emsp; 进程使用的物理内存百分比</li>
+<li><code>TIME+</code> &emsp;&emsp;&emsp;&emsp; 进程使用的CPU时间总计，单位1/100秒</li>
+<li><code>COMMAND</code> &emsp;&emsp;&emsp;&emsp;进程名称</li>
+</ul>
+<h4 id="第七行"><a href="#第七行" class="headerlink" title="第七行"></a>第七行</h4><ul>
+<li>运行的进程</li>
+</ul>
+<h4 id="视图中的操作"><a href="#视图中的操作" class="headerlink" title="视图中的操作"></a>视图中的操作</h4><ul>
+<li>按1：显示CPU逻辑核数</li>
+<li>按P：按CPU大小排序</li>
+<li>按M：按内存大小排序</li>
+<li>按k：在视图中杀进程</li>
+<li>按c：显示进程的完整命令</li>
+<li>按b：高亮显示</li>
+<li>按f：进入另一个视图，可以选择显示的字段</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ps的使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/02/ps的使用/" class="article-date">
+  	<time datetime="2016-04-02T10:26:03.630Z" itemprop="datePublished">2016-04-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/02/ps的使用/">ps的使用</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="linux上进程有5种状态"><a href="#linux上进程有5种状态" class="headerlink" title="linux上进程有5种状态:"></a>linux上进程有5种状态:</h4><ol>
+<li>运行(正在运行或在运行队列中等待) </li>
+<li>中断(休眠中, 受阻, 在等待某个条件的形成或接受到信号) </li>
+<li>不可中断(收到信号不唤醒和不可运行, 进程必须等待直到有中断发生) </li>
+<li>僵死(进程已终止, 但进程描述符存在, 直到父进程调用wait4()系统调用后释放) </li>
+<li>停止(进程收到SIGSTOP, SIGSTP, SIGTIN, SIGTOU信号后停止运行运行) </li>
+</ol>
+<h2 id="ps命令标识进程的5种状态码"><a href="#ps命令标识进程的5种状态码" class="headerlink" title="ps命令标识进程的5种状态码:"></a>ps命令标识进程的5种状态码:</h2><ol>
+<li>D 不可中断 uninterruptible sleep (usually IO) </li>
+<li>R 运行 runnable (on run queue) </li>
+<li>S 中断 sleeping </li>
+<li>T 停止 traced or stopped </li>
+<li>Z 僵死 a defunct (”zombie”) process </li>
+</ol>
+<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><ul>
+<li>a 当前终端下的所有进程,包括其他用户</li>
+<li>u 以用户为主输出进程信息</li>
+<li>x 显示当前用户在所有终端的进程信息</li>
+<li>-e 显示系统所有进程信息</li>
+<li>-l 长格式显示进程信息</li>
+<li>-f 使用完整的格式显示进程信息</li>
+</ul>
+<p>以上是常用的几个命令参数</p>
+<h2 id="常用的命令参数组合"><a href="#常用的命令参数组合" class="headerlink" title="常用的命令参数组合"></a>常用的命令参数组合</h2><h4 id="查看系统所有进程"><a href="#查看系统所有进程" class="headerlink" title="查看系统所有进程"></a>查看系统所有进程</h4><ul>
+<li>ps -ef </li>
+</ul>
+<h4 id="查看所有线程"><a href="#查看所有线程" class="headerlink" title="查看所有线程"></a>查看所有线程</h4><ul>
+<li>ps xH</li>
+</ul>
+<h4 id="查看某个进程的线程"><a href="#查看某个进程的线程" class="headerlink" title="查看某个进程的线程"></a>查看某个进程的线程</h4><ul>
+<li>ps -mp pid </li>
+<li>或者使用top命令： top -p pid -H</li>
+</ul>
+<h2 id="命令输出字段含义"><a href="#命令输出字段含义" class="headerlink" title="命令输出字段含义"></a>命令输出字段含义</h2><ul>
+<li>VSZ: 占用虚拟内存       </li>
+<li>RSS： 占用常驻内存</li>
+<li>TTY:在那个终端允许，？表示未知或不需要终端</li>
+<li>START: 启用该进程的时间  </li>
+<li>TIME:占用CPU时间</li>
+<li>PSR：表示占用的哪个CPU</li>
+<li>STAT项：<code>S 休眠</code>  <code>R运行</code>   <code>Z僵死(杀父进程)</code>   <code>&lt;高优先级</code>   <code>N低优先级</code> <code>s父进程</code>   <code>+前台运行</code></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统性能/">系统性能</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/02/hello-world/" class="article-date">
+  	<time datetime="2016-04-02T10:26:03.628Z" itemprop="datePublished">2016-04-02</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/02/hello-world/">Hello World</a>
     </h1>
   
 
@@ -208,8 +504,8 @@
     <article id="post-Tomcat-Server-Script" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/Tomcat-Server-Script/" class="article-date">
-  	<time datetime="2016-04-07T00:17:10.508Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/02/Tomcat-Server-Script/" class="article-date">
+  	<time datetime="2016-04-02T10:26:03.623Z" itemprop="datePublished">2016-04-02</time>
 </a>
     </div>
   
@@ -222,7 +518,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/Tomcat-Server-Script/">Tomcat Server Script</a>
+      <a class="article-title" href="/2016/04/02/Tomcat-Server-Script/">Tomcat Server Script</a>
     </h1>
   
 
@@ -231,8 +527,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Tomcat服务控制脚本，加入系统服务，使用service控制启动</p>
-<h3 id="变量配置文件"><a href="#变量配置文件" class="headerlink" title="变量配置文件"></a>变量配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/sysconfig/tomcat </span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> TOMCAT_USER=tomcat</span><br><span class="line"><span class="built_in">export</span> CATALINA_HOME=/opt/tomcat</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/latest/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:JAVA_HOME/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:/usr/<span class="built_in">local</span>/j2sdk/lib/tools.jar:/usr/<span class="built_in">local</span>/j2re/lib/rt.jar</span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -XX:-UseGCOverheadLimit -Xms4096m -Xmx4096m -XX:PermSize=256m -XX:MaxNewSize=384m -XX:MaxPermSize=512m"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.port=6789"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.host=127.0.0.1"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.ssl=false"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.authenticate=true"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.access.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.access"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.password.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.passwd"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line"><span class="comment"># For shutdown ,we use STOP_OPTS, since a jmx bug</span></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line">STOP_OPTS=<span class="string">"<span class="variable">$CATALINA_OPTS</span> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_OPTS</span><br><span class="line"><span class="built_in">export</span> STOP_OPTS</span><br></pre></td></tr></table></figure>
+        <p>Tomcat服务控制脚本，加入系统服务，使用service控制启动，废话不多说，直接贴脚本。</p>
+<h3 id="变量配置文件：-etc-sysconfig-tomcat-conf"><a href="#变量配置文件：-etc-sysconfig-tomcat-conf" class="headerlink" title="变量配置文件：/etc/sysconfig/tomcat.conf"></a>变量配置文件：/etc/sysconfig/tomcat.conf</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TOMCAT_USER=tomcat</span><br><span class="line"><span class="built_in">export</span> CATALINA_HOME=/opt/tomcat</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/latest/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:JAVA_HOME/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:/usr/<span class="built_in">local</span>/j2sdk/lib/tools.jar:/usr/<span class="built_in">local</span>/j2re/lib/rt.jar</span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -XX:-UseGCOverheadLimit -Xms4096m -Xmx4096m -XX:PermSize=256m -XX:MaxNewSize=384m -XX:MaxPermSize=512m"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.port=6789"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.host=127.0.0.1"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.ssl=false"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.authenticate=true"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.access.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.access"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.password.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.passwd"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line"><span class="comment"># For shutdown ,we use STOP_OPTS, since a jmx bug</span></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line">STOP_OPTS=<span class="string">"<span class="variable">$CATALINA_OPTS</span> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_OPTS</span><br><span class="line"><span class="built_in">export</span> STOP_OPTS</span><br></pre></td></tr></table></figure>
+<h2 id="服务控制脚本：-etc-init-d-tomcat"><a href="#服务控制脚本：-etc-init-d-tomcat" class="headerlink" title="服务控制脚本：/etc/init.d/tomcat"></a>服务控制脚本：/etc/init.d/tomcat</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/bash</span></span><br><span class="line"><span class="comment"># chkconfig: - 86 14</span></span><br><span class="line"><span class="comment"># Startup script for Tomcat Servlet Engine</span></span><br><span class="line"><span class="comment"># description: script to launch Tomcat on boot</span></span><br><span class="line"></span><br><span class="line">. /etc/sysconfig/tomcat</span><br><span class="line"></span><br><span class="line">RETVAL=0</span><br><span class="line"></span><br><span class="line"><span class="comment"># start, debug, stop, and status functions</span></span><br><span class="line"><span class="function"><span class="title">start</span></span>() &#123;</span><br><span class="line">    <span class="comment"># Start Tomcat in normal mode</span></span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-ne</span> 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"[ WARN ]:Tomcat is already started"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Starting tomcat..."</span></span><br><span class="line">        chown -R <span class="variable">$TOMCAT_USER</span>:<span class="variable">$TOMCAT_USER</span> <span class="variable">$CATALINA_HOME</span></span><br><span class="line">        chown -R <span class="variable">$TOMCAT_USER</span>:<span class="variable">$TOMCAT_USER</span> <span class="variable">$CATALINA_HOME</span></span><br><span class="line">        su  <span class="variable">$TOMCAT_USER</span> -c <span class="string">"<span class="variable">$CATALINA_HOME</span>/bin/catalina.sh start"</span>  <span class="comment">#调用catalina.sh启动</span></span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">while</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-eq</span> 0 ]; <span class="keyword">do</span></span><br><span class="line">            sleep 1</span><br><span class="line">            SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">done</span>    </span><br><span class="line">        RETVAL=$?</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Tomcat started: [ NORMAL ]"</span></span><br><span class="line">        [ <span class="variable">$RETVAL</span>=0 ] &amp;&amp; touch /var/lock/subsys/tomcat</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">debug</span></span>() &#123;</span><br><span class="line">    <span class="comment"># Start Tomcat in debug mode</span></span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-ne</span> 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"[ WARN ] Tomcat is already started"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Starting tomcat in debug mode..."</span></span><br><span class="line">        chown -R <span class="variable">$TOMCAT_USER</span>:<span class="variable">$TOMCAT_USER</span> <span class="variable">$CATALINA_HOME</span></span><br><span class="line">        chown -R <span class="variable">$TOMCAT_USER</span>:<span class="variable">$TOMCAT_USER</span> <span class="variable">$CATALINA_HOME</span></span><br><span class="line">        su  <span class="variable">$TOMCAT_USER</span> -c <span class="string">"<span class="variable">$CATALINA_HOME</span>/bin/catalina.sh jpda start"</span></span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">while</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-eq</span> 0 ]; <span class="keyword">do</span></span><br><span class="line">            sleep 1</span><br><span class="line">            SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">done</span>    </span><br><span class="line">        RETVAL=$?</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Tomcat started: [ DEBUG ]"</span></span><br><span class="line">        [ <span class="variable">$RETVAL</span>=0 ] &amp;&amp; touch /var/lock/subsys/tomcat</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">stop</span></span>() &#123;</span><br><span class="line">    <span class="comment"># save the export from sysconfig/tomcat</span></span><br><span class="line">    JAVA_OPTS_SAVE=<span class="string">"<span class="variable">$JAVA_OPTS</span>"</span></span><br><span class="line">    <span class="built_in">export</span> JAVA_OPTS=<span class="string">"<span class="variable">$STOP_OPTS</span>"</span></span><br><span class="line"></span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-eq</span> 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"[ WARN ] Tomcat is not running"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Stopping tomcat..."</span></span><br><span class="line">        su  <span class="variable">$TOMCAT_USER</span> -c <span class="string">"<span class="variable">$CATALINA_HOME</span>/bin/shutdown.sh"</span></span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">while</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-ne</span> 0 ]; <span class="keyword">do</span></span><br><span class="line">            sleep 1</span><br><span class="line">            SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">    RETVAL=$?</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Tomcat stopped"</span></span><br><span class="line">        [ <span class="variable">$RETVAL</span>=0 ] &amp;&amp; rm <span class="_">-f</span> /var/lock/subsys/tomcat <span class="variable">$CATALINA_HOME</span>/bin/tomcat.pid</span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">    <span class="comment"># Reset default javaopts</span></span><br><span class="line">    <span class="built_in">export</span> JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS_SAVE</span>"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">status</span></span>() &#123;</span><br><span class="line">    SHUTDOWN_PORT=`netstat -vatn|grep LISTEN|grep 8005|wc <span class="_">-l</span>`</span><br><span class="line">    <span class="keyword">if</span> [ <span class="variable">$SHUTDOWN_PORT</span> <span class="_">-eq</span> 0 ]; <span class="keyword">then</span></span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"Tomcat stopped"</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        MODE=<span class="string">"[ NORMAL ]"</span></span><br><span class="line">        JPDA_PORT=`netstat -vatn|grep LISTEN|grep 8000|wc <span class="_">-l</span>`</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$JPDA_PORT</span> <span class="_">-ne</span> 0 ]; <span class="keyword">then</span></span><br><span class="line">            MODE=<span class="string">"[ DEBUG ]"</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Tomcat running in <span class="variable">$MODE</span> mode"</span></span><br><span class="line">    <span class="keyword">fi</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">  start)</span><br><span class="line">        start</span><br><span class="line">       ;;</span><br><span class="line">  debug)</span><br><span class="line">        debug</span><br><span class="line">       ;;</span><br><span class="line">  stop)</span><br><span class="line">        stop</span><br><span class="line">       ;;</span><br><span class="line">  restart)</span><br><span class="line">        stop</span><br><span class="line">        sleep 2</span><br><span class="line">        start</span><br><span class="line">       ;;</span><br><span class="line">  redebug)</span><br><span class="line">        stop</span><br><span class="line">        debug</span><br><span class="line">       ;;</span><br><span class="line">  status)</span><br><span class="line">      status</span><br><span class="line">   ;;</span><br><span class="line">  *)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"Usage: <span class="variable">$0</span> &#123;start|debug|stop|restart|redebug|status&#125;"</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
 
       
     </div>

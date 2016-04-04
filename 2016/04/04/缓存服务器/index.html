@@ -6,22 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>缓存服务器 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力
-
-配置如下12345678910111213141516171819202122232425262728293031323334353637383940http&amp;#123;    proxy_set_header Host $host;    client_max_body_size 10m; #允许客户端请求">
+  <meta name="description" content="将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力">
 <meta property="og:type" content="article">
 <meta property="og:title" content="缓存服务器">
 <meta property="og:url" content="http://yoursite.com/2016/04/04/缓存服务器/index.html">
 <meta property="og:site_name" content="运维">
-<meta property="og:description" content="将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力
-
-配置如下12345678910111213141516171819202122232425262728293031323334353637383940http&amp;#123;    proxy_set_header Host $host;    client_max_body_size 10m; #允许客户端请求">
-<meta property="og:updated_time" content="2016-02-15T17:14:46.000Z">
+<meta property="og:description" content="将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力">
+<meta property="og:updated_time" content="2016-04-04T11:13:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="缓存服务器">
-<meta name="twitter:description" content="将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力
-
-配置如下12345678910111213141516171819202122232425262728293031323334353637383940http&amp;#123;    proxy_set_header Host $host;    client_max_body_size 10m; #允许客户端请求">
+<meta name="twitter:description" content="将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -89,11 +83,13 @@
 				        
 							<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 				        
+							<li><a href="/tags/shell/index.html">shell</a></li>
+				        
 							<li><a href="/tags/nginx/index.html">Nginx</a></li>
 				        
-							<li><a href="/tags/secure/index.html">iptables</a></li>
+							<li><a href="/tags/mysql/index.html">mysql</a></li>
 				        
-							<li><a href="/tags/shell/index.html">shell</a></li>
+							<li><a href="/tags/secure/index.html">iptables</a></li>
 				        
 						</ul>
 					</nav>
@@ -147,11 +143,13 @@
 		        
 					<li><a href="/tags/系统性能/index.html">系统管理</a></li>
 		        
+					<li><a href="/tags/shell/index.html">shell</a></li>
+		        
 					<li><a href="/tags/nginx/index.html">Nginx</a></li>
 		        
-					<li><a href="/tags/secure/index.html">iptables</a></li>
+					<li><a href="/tags/mysql/index.html">mysql</a></li>
 		        
-					<li><a href="/tags/shell/index.html">shell</a></li>
+					<li><a href="/tags/secure/index.html">iptables</a></li>
 		        
 		        <div class="clearfix"></div>
 				</ul>
@@ -169,7 +167,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/04/缓存服务器/" class="article-date">
-  	<time datetime="2016-04-04T11:09:01.103Z" itemprop="datePublished">2016-04-04</time>
+  	<time datetime="2016-04-04T11:13:49.890Z" itemprop="datePublished">2016-04-04</time>
 </a>
     </div>
   
@@ -203,8 +201,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力</p>
+<p>将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力<br><a id="more"></a></p>
 </blockquote>
+<p><br></p>
 <h1 id="配置如下"><a href="#配置如下" class="headerlink" title="配置如下"></a>配置如下</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">http&#123;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    client_max_body_size 10m; #允许客户端请求的最大单文件字节数</span><br><span class="line">    client_body_buffer_size 128k; #缓冲区代理缓冲用户端请求的最大字节数，</span><br><span class="line">    proxy_max_temp_file_size 1024m;      #最大缓存文件1G；设置为0，表示不使用临时缓存。</span><br><span class="line">    proxy_connect_timeout 90; #nginx跟后端服务器连接超时时间(代理连接超时)</span><br><span class="line">    proxy_send_timeout 90; #后端服务器数据回传时间(代理发送超时)</span><br><span class="line">    proxy_read_timeout 90; #连接成功后，后端服务器响应时间(代理接收超时)</span><br><span class="line">    proxy_buffer_size 4k; #设置代理服务器（nginx）保存用户头信息的缓冲区大小</span><br><span class="line">    proxy_buffers 4 32k; #proxy_buffers缓冲区，网页平均在32k以下的设置</span><br><span class="line">    proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）</span><br><span class="line">    proxy_temp_file_write_size 64k; #设定缓存文件夹大小，大于这个值，将从upstream服务器请求 </span><br><span class="line">proxy_temp_path /home/temp;</span><br><span class="line">proxy_cache_path /home/cache levels=1:2 keys_zone=cache_one:200m inactive=1d max_size=30g;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen       192.168.10.2:80;</span><br><span class="line">    server_name  192.168.10.2_;</span><br><span class="line">    include /etc/nginx/default.d/*.conf;</span><br><span class="line"> location  / &#123;</span><br><span class="line">        proxy_redirect          off;</span><br><span class="line">        proxy_set_header        Host            $host;</span><br><span class="line">        proxy_set_header        X-Real-IP       $remote_addr;</span><br><span class="line">        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        proxy_connect_timeout   180;</span><br><span class="line">        proxy_send_timeout      180;</span><br><span class="line">        proxy_read_timeout      180;</span><br><span class="line">        proxy_buffer_size       128k;</span><br><span class="line">        proxy_buffers           4 128k;</span><br><span class="line">        proxy_busy_buffers_size 128k;</span><br><span class="line">        proxy_temp_file_write_size 128k;</span><br><span class="line">  proxy_cache cache_one;</span><br><span class="line">  proxy_cache_valid 200 304 1h;</span><br><span class="line">  proxy_cache_valid 404 1m;</span><br><span class="line">        proxy_cache_key $uri$is_args$args;</span><br><span class="line">        add_header  Nginx-Cache &quot;$upstream_cache_status&quot;;</span><br><span class="line">  proxy_pass http://backend;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><br></p>
 <h1 id="清除缓存"><a href="#清除缓存" class="headerlink" title="清除缓存"></a>清除缓存</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#只允许本机和1.1.1.1的机器清除缓存。URL为http://q.w.e/qq.jpg,通过访问http://1.1.1.1/purge/qq.jpg就可以清除该URL的缓存</span><br><span class="line">        location  ~ /purge(/.*)&#123;</span><br><span class="line">            allow 127.0.0.1;</span><br><span class="line">            deny all;</span><br><span class="line">            porxy_cache_purge  cache_one  $host $1 $is_args $args;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">需要编译purge模块</span><br></pre></td></tr></table></figure>

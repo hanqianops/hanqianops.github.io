@@ -102,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/mysql/" style="font-size: 16px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/ninx/" style="font-size: 10px;">ninx</a> <a href="/tags/secure/" style="font-size: 18px;">secure</a> <a href="/tags/shell/" style="font-size: 14px;">shell</a> <a href="/tags/系统性能/" style="font-size: 12px;">系统性能</a>
+						<a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 12.5px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -164,11 +164,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-限制连接频率" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Nginx日志切割" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/限制连接频率/" class="article-date">
-  	<time datetime="2016-04-04T11:13:49.892Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/04/05/Nginx日志切割/" class="article-date">
+  	<time datetime="2016-04-05T03:26:22.170Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -181,7 +181,67 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/限制连接频率/">限制连接频率</a>
+      <a class="article-title" href="/2016/04/05/Nginx日志切割/">Nginx日志切割</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>nginx的日志切割可以自己写脚本实现，也可以在配置文件中定义</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line">datedir=`date +&apos;%Y-%m-%d-%H-%M-%S&apos; `</span><br><span class="line">/bin/mkdir /var/log/nginx/$datedir &gt;/dev/null 2&gt;&amp;1 </span><br><span class="line">/bin/mv /var/log/nginx/*.log /var/log/nginx/$datedir /bin/kill -HUP `cat /var/run/nginx.pid`</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-限制连接频率" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/限制连接频率/" class="article-date">
+  	<time datetime="2016-04-05T03:23:11.452Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/限制连接频率/">Nginx限制连接频率</a>
     </h1>
   
 
@@ -206,7 +266,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/限制连接频率/#more">more >></a>
+          <a  href="/2016/04/05/限制连接频率/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -228,8 +288,8 @@
     <article id="post-限制传输速度" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/限制传输速度/" class="article-date">
-  	<time datetime="2016-04-04T11:13:49.891Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/04/05/限制传输速度/" class="article-date">
+  	<time datetime="2016-04-05T03:23:11.451Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -242,7 +302,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/限制传输速度/">限制传输速度</a>
+      <a class="article-title" href="/2016/04/05/限制传输速度/">Nginx限制传输速度</a>
     </h1>
   
 
@@ -267,7 +327,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/限制传输速度/#more">more >></a>
+          <a  href="/2016/04/05/限制传输速度/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -289,8 +349,8 @@
     <article id="post-负载均衡" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/负载均衡/" class="article-date">
-  	<time datetime="2016-04-04T11:13:49.890Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/04/05/负载均衡/" class="article-date">
+  	<time datetime="2016-04-05T03:23:11.450Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -303,7 +363,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/负载均衡/">负载均衡</a>
+      <a class="article-title" href="/2016/04/05/负载均衡/">Nginx负载均衡</a>
     </h1>
   
 
@@ -312,25 +372,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">upstream qq.com &#123;</span><br><span class="line">		#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。</span><br><span class="line">	server 192.168.80.121:80 weight=3;</span><br><span class="line">	server 192.168.80.122:80 weight=2;</span><br><span class="line">	server 192.168.80.123:80 weight=3;</span><br><span class="line">&#125;</span><br><span class="line">	server &#123;</span><br><span class="line">		listen 80;</span><br><span class="line">		server_name localhost;</span><br><span class="line"></span><br><span class="line">		location / &#123;</span><br><span class="line">			proxy_pass http://qq.com;</span><br><span class="line">			proxy_set_header Host $host；</span><br><span class="line">			proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">			proxy_set_header X-Forward-For $proxy_add_x_forward_for; </span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="upstream支持的负载均衡算法"><a href="#upstream支持的负载均衡算法" class="headerlink" title="upstream支持的负载均衡算法"></a>upstream支持的负载均衡算法</h1><ul>
-<li>轮询（默认）：每个请求按时间顺序逐一分配到不同的后端服务器，如果后端某台服务器宕机，故障系统被自动剔除，使用户访问不受影响。Weight 指定轮询权值，Weight值越大，分配到的访问机率越高，主要用于后端每个服务器性能不均的情况下。</li>
-<li>ip_hash：每个请求按访问IP的hash结果分配，这样来自同一个IP的访客固定访问一个后端服务器，有效解决了动态网页存在的session共享问题。</li>
-<li>fair：这是比上面两个更加智能的负载均衡算法。此种算法可以依据页面大小和加载时间长短智能地进行负载均衡，也就是根据后端服务器的响应时间来分配请求，响应时间短的优先分配。Nginx本身是不支持fair的，如果需要使用这种调度算法，必须下载Nginx的upstream_fair模块。</li>
-<li>url_hash：此方法按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，可以进一步提高后端缓存服务器的效率。Nginx本身是不支持url_hash的，如果需要使用这种调度算法，必须安装Nginx 的hash软件包。</li>
-</ul>
-<h1 id="upstream支持的状态参数"><a href="#upstream支持的状态参数" class="headerlink" title="upstream支持的状态参数"></a>upstream支持的状态参数</h1><ul>
-<li>down，表示当前的server暂时不参与负载均衡。</li>
-<li>backup，预留的备份机器。当其他所有的非backup机器出现故障或者忙的时候，才会请求backup机器，因此这台机器的压力最轻。</li>
-<li>max_fails，允许请求失败的次数，默认为1。当超过最大次数时，返回proxy_next_upstream 模块定义的错误。</li>
-<li>fail_timeout，在经历了max_fails次失败后，暂停服务的时间。max_fails可以和fail_timeout一起使用</li>
-</ul>
-<h1 id="一下参数可以保证客户端IP头不变"><a href="#一下参数可以保证客户端IP头不变" class="headerlink" title="一下参数可以保证客户端IP头不变"></a>一下参数可以保证客户端IP头不变</h1><ul>
-<li>proxy_set_header Host $host；</li>
-<li>proxy_set_header X-Real-IP $remote_addr;</li>
-<li>proxy_set_header X-Forward-For $proxy_add_x_forward_for; </li>
-</ul>
-
+        <blockquote>
+<p>Nginx是一个轻量级的、高性能的WebServer，他主要可以干下面两件事：<br>作为http服务器（和apache的效果一样）<br>作为反向代理服务器实现负载均衡</p>
+</blockquote>
       
     </div>
     
@@ -343,6 +387,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/05/负载均衡/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -363,8 +411,8 @@
     <article id="post-缓存服务器" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/04/缓存服务器/" class="article-date">
-  	<time datetime="2016-04-04T11:13:49.890Z" itemprop="datePublished">2016-04-04</time>
+      <a href="/2016/04/05/缓存服务器/" class="article-date">
+  	<time datetime="2016-04-05T03:23:11.449Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -377,7 +425,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/缓存服务器/">缓存服务器</a>
+      <a class="article-title" href="/2016/04/05/缓存服务器/">Nginx缓存服务器</a>
     </h1>
   
 
@@ -402,68 +450,7 @@
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/04/缓存服务器/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-缓存图片" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/04/缓存图片/" class="article-date">
-  	<time datetime="2016-04-04T11:13:49.889Z" itemprop="datePublished">2016-04-04</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/04/缓存图片/">缓存图片</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>这个是缓存在客户端的，使用expires定义缓存时间<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/04/缓存图片/#more">more >></a>
+          <a  href="/2016/04/05/缓存服务器/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -484,7 +471,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 </div>

@@ -4,17 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Tag: ninx | 运维</title>
+  <title>Nginx限制连接频率 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="运维">
-<meta property="og:url" content="http://yoursite.com/tags/ninx/index.html">
+  <meta name="description" content="需要启用limit_req_zone模块">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx限制连接频率">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/限制连接频率/index.html">
 <meta property="og:site_name" content="运维">
-<meta property="og:description">
+<meta property="og:description" content="需要启用limit_req_zone模块">
+<meta property="og:updated_time" content="2016-04-05T00:47:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="运维">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Nginx限制连接频率">
+<meta name="twitter:description" content="需要启用limit_req_zone模块">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -102,7 +103,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/mysql/" style="font-size: 16px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/ninx/" style="font-size: 10px;">ninx</a> <a href="/tags/secure/" style="font-size: 18px;">secure</a> <a href="/tags/shell/" style="font-size: 14px;">shell</a> <a href="/tags/系统性能/" style="font-size: 12px;">系统性能</a>
+						<a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 12.5px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -162,53 +163,122 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-限制连接频率" class="article article-type-post" itemscope itemprop="blogPost">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/04/04/Nginx日志切割/" class="archive-article-date">
-  	<time datetime="2016-04-04T11:13:49.858Z" itemprop="datePublished">Apr 4</time>
+    <div class="article-meta">
+      <a href="/2016/04/05/限制连接频率/" class="article-date">
+  	<time datetime="2016-04-05T03:23:11.452Z" itemprop="datePublished">2016-04-05</time>
 </a>
-        </div>
-    	 
+    </div>
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/04/04/Nginx日志切割/">Nginx日志切割</a>
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Nginx限制连接频率
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+      </header>
+      
+      <div class="article-info article-info-post">
+        
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ninx/">ninx</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
 	</div>
 
-          
+        
 
-        </div>
         <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
+      </div>
+      
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>需要启用limit_req_zone模块<br><a id="more"></a></p>
+</blockquote>
+<p><br></p>
+<h1 id="配置方法如下"><a href="#配置方法如下" class="headerlink" title="配置方法如下"></a>配置方法如下</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">limit_req_zone  $binary_remote_addr  zone=req_one:10m rate=1r/s;</span><br><span class="line"></span><br><span class="line"> server &#123;</span><br><span class="line"> 	location /download/ &#123;</span><br><span class="line">		limit_req   zone=req_one  burst=120 nodelay;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/05/Nginx日志切割/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Nginx日志切割
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/05/限制传输速度/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx限制传输速度</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="限制连接频率" data-title="Nginx限制连接频率" data-url="http://yoursite.com/2016/04/05/限制连接频率/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -234,9 +304,9 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false
 	}

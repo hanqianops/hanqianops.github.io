@@ -4,30 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>iptables状态连接 | 运维</title>
+  <title>限制SSH错误登录尝试次数 | 运维</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="相关参数
-NEW：已经或将启动的新链接
-ESTABLISHED：已经建立的链接
-RELATED：正在启动的新链接
-INVALID：非法或无法识别的链接">
+  <meta name="description" content="123456789101112131415161718192021222324#!/bin/bash#eee 中是同一ip出现到次数和具体ip#ip文件中只有出现的次数grep Failed /var/log/secure |grep &amp;quot;`date -d &amp;apos;-1 minute&amp;apos; &amp;apos;+%e %H:%M&amp;apos;`&amp;quot;|awk &amp;apos;&amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables状态连接">
-<meta property="og:url" content="http://yoursite.com/2016/04/05/iptables状态连接/index.html">
+<meta property="og:title" content="限制SSH错误登录尝试次数">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/限制SSH错误登录尝试次数/index.html">
 <meta property="og:site_name" content="运维">
-<meta property="og:description" content="相关参数
-NEW：已经或将启动的新链接
-ESTABLISHED：已经建立的链接
-RELATED：正在启动的新链接
-INVALID：非法或无法识别的链接">
-<meta property="og:updated_time" content="2016-03-14T16:14:58.000Z">
+<meta property="og:description" content="123456789101112131415161718192021222324#!/bin/bash#eee 中是同一ip出现到次数和具体ip#ip文件中只有出现的次数grep Failed /var/log/secure |grep &amp;quot;`date -d &amp;apos;-1 minute&amp;apos; &amp;apos;+%e %H:%M&amp;apos;`&amp;quot;|awk &amp;apos;&amp;#123;">
+<meta property="og:updated_time" content="2016-04-05T03:49:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iptables状态连接">
-<meta name="twitter:description" content="相关参数
-NEW：已经或将启动的新链接
-ESTABLISHED：已经建立的链接
-RELATED：正在启动的新链接
-INVALID：非法或无法识别的链接">
+<meta name="twitter:title" content="限制SSH错误登录尝试次数">
+<meta name="twitter:description" content="123456789101112131415161718192021222324#!/bin/bash#eee 中是同一ip出现到次数和具体ip#ip文件中只有出现的次数grep Failed /var/log/secure |grep &amp;quot;`date -d &amp;apos;-1 minute&amp;apos; &amp;apos;+%e %H:%M&amp;apos;`&amp;quot;|awk &amp;apos;&amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -175,11 +163,11 @@ INVALID：非法或无法识别的链接">
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-iptables状态连接" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-限制SSH错误登录尝试次数" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/iptables状态连接/" class="article-date">
-  	<time datetime="2016-04-05T03:49:41.216Z" itemprop="datePublished">2016-04-05</time>
+      <a href="/2016/04/05/限制SSH错误登录尝试次数/" class="article-date">
+  	<time datetime="2016-04-05T03:49:41.240Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -192,7 +180,7 @@ INVALID：非法或无法识别的链接">
         
   
     <h1 class="article-title" itemprop="name">
-      iptables状态连接
+      限制SSH错误登录尝试次数
     </h1>
   
 
@@ -201,7 +189,7 @@ INVALID：非法或无法识别的链接">
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
 	</div>
 
         
@@ -212,16 +200,8 @@ INVALID：非法或无法识别的链接">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
-<li>NEW：已经或将启动的新链接</li>
-<li>ESTABLISHED：已经建立的链接</li>
-<li>RELATED：正在启动的新链接</li>
-<li>INVALID：非法或无法识别的链接<a id="more"></a>
-<h1 id="允许关联的状态包通过"><a href="#允许关联的状态包通过" class="headerlink" title="允许关联的状态包通过"></a>允许关联的状态包通过</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -m state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="不允许其他机器主动发起连接"><a href="#不允许其他机器主动发起连接" class="headerlink" title="不允许其他机器主动发起连接"></a>不允许其他机器主动发起连接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -m state --state NEW -j DROP</span><br></pre></td></tr></table></figure>
-<h1 id="现有连接可以通信，但不接受新的连接"><a href="#现有连接可以通信，但不接受新的连接" class="headerlink" title="现有连接可以通信，但不接受新的连接"></a>现有连接可以通信，但不接受新的连接</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -A INPUT -m state --state NEW -j DROP</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#eee 中是同一ip出现到次数和具体ip</span><br><span class="line">#ip文件中只有出现的次数</span><br><span class="line">grep Failed /var/log/secure |grep &quot;`date -d &apos;-1 minute&apos; &apos;+%e %H:%M&apos;`&quot;|awk &apos;&#123;print $11&#125;&apos;|sort|uniq -c |tee eee |awk &apos;&#123;print $1&#125;&apos; &gt;ip</span><br><span class="line"></span><br><span class="line">for i in `cat ip`;do</span><br><span class="line">if [ &quot;$i&quot; -ge 4 ];then #错误次数大于等于4次，则禁止</span><br><span class="line">	grep &quot;^ *$i&quot; eee |awk &apos;&#123;print $2&#125;&apos;&gt;sss</span><br><span class="line">	for r in `cat sss`;do #防止不同ip出现次数相同时到错误</span><br><span class="line">	echo $qq</span><br><span class="line">	date=#`date +%s`</span><br><span class="line">	sed -i &quot;\$a\sshd:&quot;$r&quot; $date&quot; /etc/hosts.deny</span><br><span class="line">done</span><br><span class="line">fi</span><br><span class="line">done</span><br><span class="line">xian=`date +%s`</span><br><span class="line">grep -v ^# /etc/hosts.deny |awk &apos;&#123;print $2&#125;&apos;|tr -d &quot;#&quot; &gt;shanchu</span><br><span class="line">for o in `cat shanchu`;do</span><br><span class="line">	ww=$(($xian- $o))</span><br><span class="line">	if [ $ww -gt 30 ];then #30秒后删除,如果脚本1分钟运行一次，那么实际锁定时间是1分钟，这个值只要不大与60，效果一样</span><br><span class="line">		sed -i &quot;/&quot;$o&quot;/d&quot; /etc/hosts.deny</span><br><span class="line">	fi</span><br><span class="line">done</span><br><span class="line">rm -rf eee ip sss shanchu</span><br></pre></td></tr></table></figure>
+<p>如果想一直运行，外层套一个while就可以</p>
 
       
     </div>
@@ -231,18 +211,18 @@ INVALID：非法或无法识别的链接">
     
 <nav id="article-nav">
   
-    <a href="/2016/04/05/iptables自定义链/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/04/05/限制传输速度/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          iptables自定义链
+          Nginx限制传输速度
         
       </div>
     </a>
   
   
-    <a href="/2016/04/05/iptables域名过滤/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">iptables字符串过滤</div>
+    <a href="/2016/04/05/部分更新脚本/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">部分更新脚本</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -277,7 +257,7 @@ INVALID：非法或无法识别的链接">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="iptables状态连接" data-title="iptables状态连接" data-url="http://yoursite.com/2016/04/05/iptables状态连接/"></div>
+	<div class="ds-thread" data-thread-key="限制SSH错误登录尝试次数" data-title="限制SSH错误登录尝试次数" data-url="http://yoursite.com/2016/04/05/限制SSH错误登录尝试次数/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

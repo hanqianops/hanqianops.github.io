@@ -102,7 +102,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 12.5px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
+						<a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统性能/" style="font-size: 10px;">系统性能</a>
 					</div>
 				</section>
 				
@@ -164,71 +164,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-Nginx日志切割" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/05/Nginx日志切割/" class="article-date">
-  	<time datetime="2016-04-05T03:26:22.170Z" itemprop="datePublished">2016-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/Nginx日志切割/">Nginx日志切割</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>nginx的日志切割可以自己写脚本实现，也可以在配置文件中定义</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line">datedir=`date +&apos;%Y-%m-%d-%H-%M-%S&apos; `</span><br><span class="line">/bin/mkdir /var/log/nginx/$datedir &gt;/dev/null 2&gt;&amp;1 </span><br><span class="line">/bin/mv /var/log/nginx/*.log /var/log/nginx/$datedir /bin/kill -HUP `cat /var/run/nginx.pid`</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-限制连接频率" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/05/限制连接频率/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.452Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T03:49:41.241Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -289,7 +229,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/限制传输速度/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.451Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T03:49:41.241Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -346,11 +286,130 @@
 
 
   
+    <article id="post-限制SSH错误登录尝试次数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/限制SSH错误登录尝试次数/" class="article-date">
+  	<time datetime="2016-04-05T03:49:41.240Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/限制SSH错误登录尝试次数/">限制SSH错误登录尝试次数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#eee 中是同一ip出现到次数和具体ip</span><br><span class="line">#ip文件中只有出现的次数</span><br><span class="line">grep Failed /var/log/secure |grep &quot;`date -d &apos;-1 minute&apos; &apos;+%e %H:%M&apos;`&quot;|awk &apos;&#123;print $11&#125;&apos;|sort|uniq -c |tee eee |awk &apos;&#123;print $1&#125;&apos; &gt;ip</span><br><span class="line"></span><br><span class="line">for i in `cat ip`;do</span><br><span class="line">if [ &quot;$i&quot; -ge 4 ];then #错误次数大于等于4次，则禁止</span><br><span class="line">	grep &quot;^ *$i&quot; eee |awk &apos;&#123;print $2&#125;&apos;&gt;sss</span><br><span class="line">	for r in `cat sss`;do #防止不同ip出现次数相同时到错误</span><br><span class="line">	echo $qq</span><br><span class="line">	date=#`date +%s`</span><br><span class="line">	sed -i &quot;\$a\sshd:&quot;$r&quot; $date&quot; /etc/hosts.deny</span><br><span class="line">done</span><br><span class="line">fi</span><br><span class="line">done</span><br><span class="line">xian=`date +%s`</span><br><span class="line">grep -v ^# /etc/hosts.deny |awk &apos;&#123;print $2&#125;&apos;|tr -d &quot;#&quot; &gt;shanchu</span><br><span class="line">for o in `cat shanchu`;do</span><br><span class="line">	ww=$(($xian- $o))</span><br><span class="line">	if [ $ww -gt 30 ];then #30秒后删除,如果脚本1分钟运行一次，那么实际锁定时间是1分钟，这个值只要不大与60，效果一样</span><br><span class="line">		sed -i &quot;/&quot;$o&quot;/d&quot; /etc/hosts.deny</span><br><span class="line">	fi</span><br><span class="line">done</span><br><span class="line">rm -rf eee ip sss shanchu</span><br></pre></td></tr></table></figure>
+<p>如果想一直运行，外层套一个while就可以</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-部分更新脚本" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/部分更新脚本/" class="article-date">
+  	<time datetime="2016-04-05T03:49:41.239Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/部分更新脚本/">部分更新脚本</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>由于经常进行线上部分更新，开发给一堆文件和路径，然后我苦逼的上线就开始，cd xxx;mv xxx xxx ;cp xxx xxx;各种蛋疼，所以就写了一个shell脚本来上线。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/05/部分更新脚本/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-负载均衡" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/05/负载均衡/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.450Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T03:49:41.238Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -390,67 +449,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/04/05/负载均衡/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-缓存服务器" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/05/缓存服务器/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.449Z" itemprop="datePublished">2016-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/缓存服务器/">Nginx缓存服务器</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>将用户请求过的内容缓存，等下次在访问该内容是，直接返回给用户，间接提高服务器处理能力<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/05/缓存服务器/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>iptables应用 | 运维</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Linux防火墙主要工作在网络网络层，针对TCP/IP数据包过滤和限制netfilter（内核态）：指的是Linux内核中实现包过滤防火墙的内部结构，不以程序和文件的形式存在iptables（用户态）：指用来管理Linux防火墙的命令程序，位于/sbin/iptables以上都是用来指Linux防火墙">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iptables应用">
+<meta property="og:url" content="http://yoursite.com/2016/04/05/0008/index.html">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="Linux防火墙主要工作在网络网络层，针对TCP/IP数据包过滤和限制netfilter（内核态）：指的是Linux内核中实现包过滤防火墙的内部结构，不以程序和文件的形式存在iptables（用户态）：指用来管理Linux防火墙的命令程序，位于/sbin/iptables以上都是用来指Linux防火墙">
+<meta property="og:updated_time" content="2016-03-14T16:55:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iptables应用">
+<meta name="twitter:description" content="Linux防火墙主要工作在网络网络层，针对TCP/IP数据包过滤和限制netfilter（内核态）：指的是Linux内核中实现包过滤防火墙的内部结构，不以程序和文件的形式存在iptables（用户态）：指用来管理Linux防火墙的命令程序，位于/sbin/iptables以上都是用来指Linux防火墙">
+  
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/photo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/系统/index.html">系统管理</a></li>
+				        
+							<li><a href="/tags/shell/index.html">shell</a></li>
+				        
+							<li><a href="/tags/nginx/index.html">Nginx</a></li>
+				        
+							<li><a href="/tags/mysql/index.html">mysql</a></li>
+				        
+							<li><a href="/tags/secure/index.html">iptables</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统/" style="font-size: 10px;">系统</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/photo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">破浪</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/系统/index.html">系统管理</a></li>
+		        
+					<li><a href="/tags/shell/index.html">shell</a></li>
+		        
+					<li><a href="/tags/nginx/index.html">Nginx</a></li>
+		        
+					<li><a href="/tags/mysql/index.html">mysql</a></li>
+		        
+					<li><a href="/tags/secure/index.html">iptables</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-0008" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/0008/" class="article-date">
+  	<time datetime="2016-04-05T05:33:42.841Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iptables应用
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Linux防火墙主要工作在网络网络层，针对TCP/IP数据包过滤和限制<br>netfilter（内核态）：指的是Linux内核中实现包过滤防火墙的内部结构，不以程序和文件的形式存在<br>iptables（用户态）：指用来管理Linux防火墙的命令程序，位于/sbin/iptables<br><strong>以上都是用来指Linux防火墙</strong><br><a id="more"></a></p>
+</blockquote>
+<p><br></p>
+<h1 id="iptables结构"><a href="#iptables结构" class="headerlink" title="iptables结构"></a>iptables结构</h1><h2 id="4个规则表"><a href="#4个规则表" class="headerlink" title="4个规则表"></a>4个规则表</h2><p><code>4个表的应用顺序：raw--&gt;mangle--&gt;nat--&gt;filter</code></p>
+<ul>
+<li>raw 用来决定是否对数据包进行状态跟踪<br>对应模块iptable_raw；<br>包含两个链OUTPUT、PREROUTING</li>
+<li><p>mangle  改变数据包的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对应模块iptable_mangle；</span><br><span class="line">包含五个链</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>nat 网络地址转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对应模块iptable_nat</span><br><span class="line">包含三个链OUTPUT、PREROUTING、POSTROUTING</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>filter 过滤数据包</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">对应内核模块iptable_filter</span><br><span class="line">包含三个链INPUT、OUTPUT、FORWARD</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><br></p>
+<h2 id="5种规则链"><a href="#5种规则链" class="headerlink" title="5种规则链"></a>5种规则链</h2><ul>
+<li>INPUT（入站）：收到访问防火墙本机地址的数据包时应用</li>
+<li>OUTPUT（出站）：本机发送数据包时应用</li>
+<li>PREROUTING（路由前）：在对数据包做选择路由之前应用</li>
+<li>FORWARD（转发）：当接收到需要通过本机转发给其它地址的数据包时应用</li>
+<li>POSTROUTING（路由后）：在对数据包做完选择路由之后应用</li>
+</ul>
+<h3 id="规则链应用顺序"><a href="#规则链应用顺序" class="headerlink" title="规则链应用顺序"></a>规则链应用顺序</h3><ul>
+<li>入站数据：PREROUTING –&gt; INPUT</li>
+<li>出站数据：OUTPUT –&gt; POSTROUTING</li>
+<li>转发数据：PREROUTING –&gt; FORWARD –&gt; POSTROUTING<br><br></li>
+</ul>
+<p><br></p>
+<h1 id="控制类型"><a href="#控制类型" class="headerlink" title="控制类型"></a>控制类型</h1><ul>
+<li>DROP：悄悄丢弃；一般我们多用DROP来隐藏我们的身份，以及隐藏我们的链表</li>
+<li>REJECT：明示拒绝；显示无法连接到端口</li>
+<li>ACCEPT：接受</li>
+<li>LOG：记录日志到/var/log/messages;要写到最前边</li>
+</ul>
+<p><br></p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><ul>
+<li>iptable [-t 表名] [-(A|I|D|R)链名] [规则编号] [-(i|o）eth0] [-p 协议类型] [-s 源地址/子网 ] [–sport 源端口] [-d 目的地址] [–dport 目的端口] [-j  控制类型]</li>
+</ul>
+<h2 id="命令参数"><a href="#命令参数" class="headerlink" title="命令参数"></a>命令参数</h2><ul>
+<li>-A 在链的末尾追加一条规则</li>
+<li>-I 在链的开头（或指定序号）插入一条规则</li>
+<li>-R 修改、替换，指定规则序号</li>
+<li>-L 列出所有的规则条目</li>
+<li>-n 以数字形式显示地址、端口等信息</li>
+<li>-v 以更详细的方式显示规则信息</li>
+<li>–line-numbers 查询规则时，显示规则的序号</li>
+<li>-D 删除链内指定序号（或内容）的一条规则</li>
+<li>-F 清空所有的规则，默认策略不受影响</li>
+<li>-Z 清空 “-vn”显示的数据包</li>
+<li>-P 为指定的链设置默认规则</li>
+</ul>
+<p><br></p>
+<h1 id="匹配类型"><a href="#匹配类型" class="headerlink" title="匹配类型"></a>匹配类型</h1><p><br></p>
+<h3 id="协议匹配"><a href="#协议匹配" class="headerlink" title="协议匹配"></a>协议匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-p 协议名</span><br><span class="line"></span><br><span class="line">禁止TCP协议</span><br><span class="line">	iptables -A INPUT ! -p tcp -j DROP</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="地址匹配"><a href="#地址匹配" class="headerlink" title="地址匹配"></a>地址匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-s 源地址</span><br><span class="line">-d 目的地址</span><br><span class="line"></span><br><span class="line">允许目标地址是1.1.1.1的</span><br><span class="line">	iptables -A INPUT -d 1.1.1.1 -j ACCEPT</span><br><span class="line">允许源地址是1.1.1.2的</span><br><span class="line">	iptables -A INPUT -s 1.1.1.1 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="接口匹配"><a href="#接口匹配" class="headerlink" title="接口匹配"></a>接口匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-i 入站网卡</span><br><span class="line">-o 出站网卡</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="端口匹配"><a href="#端口匹配" class="headerlink" title="端口匹配"></a>端口匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--sport 源端口</span><br><span class="line">--dport 目的端口</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="TCP标记匹配"><a href="#TCP标记匹配" class="headerlink" title="TCP标记匹配"></a>TCP标记匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> --tcp-flags 检查范围 被设置的标记</span><br><span class="line"></span><br><span class="line"> 禁止ACK标记</span><br><span class="line">	 iptables -A INPUT -p tcp --tcp-flags SYN,ACK ACK -j DROP</span><br><span class="line">禁止ACK和SYN标记</span><br><span class="line">	iptables -A INPUT -p tcp --tcp-flags SYN,ACK SYN,ACK -j DROP</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="ICMP匹配"><a href="#ICMP匹配" class="headerlink" title="ICMP匹配"></a>ICMP匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--icmp-type ICMP类型</span><br><span class="line">本机可以ping远端，远端不可以ping本机</span><br><span class="line">	iptables -A INPUT -p icmp --icmp-type 8 -j DROP</span><br><span class="line">远端可以ping本机，本机不可以ping本机</span><br><span class="line">	iptables -A INPUT -p icmp --icmp-type 0 -j DROP</span><br><span class="line">双方ping不通</span><br><span class="line">	iptables -A INPUT -p icmp  -j DROP</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="多端口匹配"><a href="#多端口匹配" class="headerlink" title="多端口匹配"></a>多端口匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-m multiport [ --sports | --dports ] 端口列表</span><br><span class="line"></span><br><span class="line">禁止源端口是25 80 110的</span><br><span class="line">	iptables -A INPU -m multiport --sport 25，80,110 -j DROP</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="IP范围匹配"><a href="#IP范围匹配" class="headerlink" title="IP范围匹配"></a>IP范围匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-m iprange --src-range IP范围</span><br><span class="line"></span><br><span class="line">禁止1.1.1.1到1.1.1.10之间的地址</span><br><span class="line">iptables -A INPUT -m iprange --src-range 1.1.1.1-1.1.1.10 -j DROP</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="MAC地址匹配"><a href="#MAC地址匹配" class="headerlink" title="MAC地址匹配"></a>MAC地址匹配</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-m mac --mac-source MAC地址</span><br><span class="line">禁止MAC地址为00:50:56:2E:FD:35的</span><br><span class="line">	iptables -A INPUT -m mac --mac-source 00:50:56:2E:FD:35 -j DROP</span><br></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="匹配状态"><a href="#匹配状态" class="headerlink" title="匹配状态"></a>匹配状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-m state --state 连接状态</span><br><span class="line">相关参数</span><br><span class="line">	- NEW：已经或将启动的新链接</span><br><span class="line">	- ESTABLISHED：已经建立的链接</span><br><span class="line">	- RELATED：正在启动的新链接</span><br><span class="line">	- INVALID：非法或无法识别的链接</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">允许关联的状态包通过</span><br><span class="line">	iptables -A INPUT -m state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">	iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line"></span><br><span class="line">不允许其他机器主动发起连接</span><br><span class="line">	iptables -A INPUT -m state --state NEW -j DROP</span><br><span class="line"></span><br><span class="line">现有连接可以通信，但不接受新的连接</span><br><span class="line">	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">	iptables -A INPUT -m state --state NEW -j DROP</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/05/0009/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          iptables速率控制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/05/0007/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx gzip压缩模块</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="0008" data-title="iptables应用" data-url="http://yoursite.com/2016/04/05/0008/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 破浪
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

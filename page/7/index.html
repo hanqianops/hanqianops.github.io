@@ -160,73 +160,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-SNAT源地址转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/05/SNAT源地址转换/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.419Z" itemprop="datePublished">2016-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/SNAT源地址转换/">SNAT源地址转换</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>当局域网PC访问internet的数据包到达网关服务器时，会<strong>先进行路由选择</strong>；若发现该数据包需要从外网借口向外转发，则<strong>将其源IP地址修改为网关的外网借口地址</strong>，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/05/SNAT源地址转换/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
     <article id="post-PHP-FPM错误日志" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/05/PHP-FPM错误日志/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.418Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T06:29:23.972Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -287,7 +225,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/PHP-FPM/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.417Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T06:29:23.968Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -348,7 +286,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/OSI参考模型/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.415Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T06:29:23.965Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -405,11 +343,71 @@
 
 
   
+    <article id="post-Nginx日志切割" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/Nginx日志切割/" class="article-date">
+  	<time datetime="2016-04-05T06:29:23.964Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/Nginx日志切割/">Nginx日志切割</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>nginx的日志切割可以自己写脚本实现，也可以在配置文件中定义</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line">datedir=`date +&apos;%Y-%m-%d-%H-%M-%S&apos; `</span><br><span class="line">/bin/mkdir /var/log/nginx/$datedir &gt;/dev/null 2&gt;&amp;1 </span><br><span class="line">/bin/mv /var/log/nginx/*.log /var/log/nginx/$datedir /bin/kill -HUP `cat /var/run/nginx.pid`</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Nginx定义日志格式" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/04/05/Nginx定义日志格式/" class="article-date">
-  	<time datetime="2016-04-05T03:23:11.413Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T06:29:23.960Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -468,7 +466,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 </div>

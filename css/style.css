@@ -249,6 +249,7 @@ a {
   background-color: #000;
   position: absolute;
   opacity: 0.7;
+  z-index: -1;
 }
 #container .left-col .intrude-less {
   width: 76%;
@@ -2322,6 +2323,9 @@ form input.st-search-input_my {
   padding: 4px 9px 4px 27px;
   height: 20px;
   width: 190px;
+  position: absolute;
+  left: 32px;
+  top: 70px;
   color: #666;
   border: 1px solid #ccc;
   -webkit-border-radius: 15px;

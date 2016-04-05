@@ -29,6 +29,12 @@
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
+		
+				<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-input" class="st-search-input_my" maxlength="30" placeholder="Search" />
+				</form>
+		
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
@@ -160,11 +166,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-00012" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00011" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/00012/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.656Z" itemprop="datePublished">2016-04-05</time>
+      <a href="/2016/04/05/00011/" class="article-date">
+  	<time datetime="2016-04-05T11:17:28.984Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -177,7 +183,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/00012/">iptables自定义链</a>
+      <a class="article-title" href="/2016/04/05/00011/">iptables状态连接</a>
     </h1>
   
 
@@ -186,13 +192,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>iptables -N aaa    创建自定义链</li>
-<li>iptables -A INPUT -j aaa   引用到INPUT链</li>
-<li>iptables -X      清除自定义链</li>
-</ul>
-<p>自定义链处理SYN攻击<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -N syn-flood</span><br><span class="line">iptables -A INPUT -i eth0 -syn -j syn-flood</span><br><span class="line">iptables -A syn-flood -m limit -limit 5000/s -limit-burst 200 -j RETURN</span><br><span class="line">iptables -A syn-flood -j DROP</span><br></pre></td></tr></table></figure></p>
-
+        <h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
+<li>NEW：已经或将启动的新链接</li>
+<li>ESTABLISHED：已经建立的链接</li>
+<li>RELATED：正在启动的新链接</li>
+<li>INVALID：非法或无法识别的链接
       
     </div>
     
@@ -205,6 +209,10 @@
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/05/00011/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -226,7 +234,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/00010/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.653Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T11:17:28.982Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -287,7 +295,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/0001/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.647Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T11:17:28.975Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -326,67 +334,6 @@
       
         <p class="article-more-link">
           <a  href="/2016/04/05/0001/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-00044" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/05/00044/" class="article-date">
-  	<time datetime="2016-04-05T03:02:01.000Z" itemprop="datePublished">2016-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/00044/">一次关于session的实践</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Session:在计算机中，尤其是在网络应用中，称为“会话控制”。Session 对象存储特定用户会话所需的信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当用户请求来自应用程序的 Web 页时，如果该用户还没有会话，则 Web 服务器将自动创建一个 Session 对象。当会话过期或被放弃后，服务器将终止该会话。Session 对象最常见的一个用法就是存储用户的首选项。例如，如果用户指明不喜欢查看图形，就可以将该信息存储在 Session 对象中。有关使用 Session 对象的详细信息，请参阅“ASP 应用程序”部分的“管理会话”。注意 会话状态仅在支持 cookie 的浏览器中保留。<br>以上是百度百科对session的解释<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/05/00044/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -466,6 +413,67 @@
 
 
   
+    <article id="post-00044" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/05/00044/" class="article-date">
+  	<time datetime="2016-04-05T03:02:01.000Z" itemprop="datePublished">2016-04-05</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/05/00044/">一次关于session的实践</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>Session:在计算机中，尤其是在网络应用中，称为“会话控制”。Session 对象存储特定用户会话所需的信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当用户请求来自应用程序的 Web 页时，如果该用户还没有会话，则 Web 服务器将自动创建一个 Session 对象。当会话过期或被放弃后，服务器将终止该会话。Session 对象最常见的一个用法就是存储用户的首选项。例如，如果用户指明不喜欢查看图形，就可以将该信息存储在 Session 对象中。有关使用 Session 对象的详细信息，请参阅“ASP 应用程序”部分的“管理会话”。注意 会话状态仅在支持 cookie 的浏览器中保留。<br>以上是百度百科对session的解释<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/05/00044/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/17/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span>
@@ -481,9 +489,18 @@
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','zBCZSGw5qcsdvjb6X4oy','2.0.0');
+</script>
     </div>
   </div>
 </footer>
+
     </div>
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">

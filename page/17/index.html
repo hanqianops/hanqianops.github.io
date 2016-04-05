@@ -29,6 +29,12 @@
     <div class="left-col">
     <div class="overlay"></div>
 <div class="intrude-less">
+		
+				<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="st-search-input" class="st-search-input_my" maxlength="30" placeholder="Search" />
+				</form>
+		
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
 			
@@ -164,7 +170,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/00016/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.662Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T11:17:28.992Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -226,7 +232,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/00015/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.661Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T11:17:28.990Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -287,7 +293,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/00014/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.659Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T11:17:28.988Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -348,7 +354,7 @@
   
     <div class="article-meta">
       <a href="/2016/04/05/00013/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.658Z" itemprop="datePublished">2016-04-05</time>
+  	<time datetime="2016-04-05T11:17:28.986Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -406,11 +412,11 @@
 
 
   
-    <article id="post-00011" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-00012" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/05/00011/" class="article-date">
-  	<time datetime="2016-04-05T09:18:48.656Z" itemprop="datePublished">2016-04-05</time>
+      <a href="/2016/04/05/00012/" class="article-date">
+  	<time datetime="2016-04-05T11:17:28.985Z" itemprop="datePublished">2016-04-05</time>
 </a>
     </div>
   
@@ -423,7 +429,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/00011/">iptables状态连接</a>
+      <a class="article-title" href="/2016/04/05/00012/">iptables自定义链</a>
     </h1>
   
 
@@ -432,11 +438,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="相关参数"><a href="#相关参数" class="headerlink" title="相关参数"></a>相关参数</h1><ul>
-<li>NEW：已经或将启动的新链接</li>
-<li>ESTABLISHED：已经建立的链接</li>
-<li>RELATED：正在启动的新链接</li>
-<li>INVALID：非法或无法识别的链接
+        <ul>
+<li>iptables -N aaa    创建自定义链</li>
+<li>iptables -A INPUT -j aaa   引用到INPUT链</li>
+<li>iptables -X      清除自定义链</li>
+</ul>
+<p>自定义链处理SYN攻击<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -N syn-flood</span><br><span class="line">iptables -A INPUT -i eth0 -syn -j syn-flood</span><br><span class="line">iptables -A syn-flood -m limit -limit 5000/s -limit-burst 200 -j RETURN</span><br><span class="line">iptables -A syn-flood -j DROP</span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     
@@ -449,10 +457,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/05/00011/#more">more >></a>
-        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -485,9 +489,18 @@
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
       	</div>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','zBCZSGw5qcsdvjb6X4oy','2.0.0');
+</script>
     </div>
   </div>
 </footer>
+
     </div>
     
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">

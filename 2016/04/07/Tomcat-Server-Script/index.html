@@ -58,21 +58,18 @@
 
 
 <meta name="description" content="Tomcat服务控制脚本，加入系统服务，使用service控制启动
-###变量配置文件
-12345678910111213141516171819202122cat /etc/sysconfig/tomcat export TOMCAT_USER=tomcatexport CATALINA_HOME=/opt/tomcatexport JAVA_HOME=/usr/java/latest/expo">
+变量配置文件12345678910111213141516171819202122cat /etc/sysconfig/tomcat export TOMCAT_USER=tomcatexport CATALINA_HOME=/opt/tomcatexport JAVA_HOME=/usr/java/latest/export P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tomcat Server Script">
 <meta property="og:url" content="http://yoursite.com/2016/04/07/Tomcat-Server-Script/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Tomcat服务控制脚本，加入系统服务，使用service控制启动
-###变量配置文件
-12345678910111213141516171819202122cat /etc/sysconfig/tomcat export TOMCAT_USER=tomcatexport CATALINA_HOME=/opt/tomcatexport JAVA_HOME=/usr/java/latest/expo">
-<meta property="og:updated_time" content="2016-04-06T21:08:41.000Z">
+变量配置文件12345678910111213141516171819202122cat /etc/sysconfig/tomcat export TOMCAT_USER=tomcatexport CATALINA_HOME=/opt/tomcatexport JAVA_HOME=/usr/java/latest/export P">
+<meta property="og:updated_time" content="2016-04-06T21:14:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat Server Script">
 <meta name="twitter:description" content="Tomcat服务控制脚本，加入系统服务，使用service控制启动
-###变量配置文件
-12345678910111213141516171819202122cat /etc/sysconfig/tomcat export TOMCAT_USER=tomcatexport CATALINA_HOME=/opt/tomcatexport JAVA_HOME=/usr/java/latest/expo">
+变量配置文件12345678910111213141516171819202122cat /etc/sysconfig/tomcat export TOMCAT_USER=tomcatexport CATALINA_HOME=/opt/tomcatexport JAVA_HOME=/usr/java/latest/export P">
 
 
 
@@ -222,7 +219,7 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-07T05:12:04+08:00" content="2016-04-07">
+            <time itemprop="dateCreated" datetime="2016-04-07T05:14:38+08:00" content="2016-04-07">
               2016-04-07
             </time>
           </span>
@@ -250,8 +247,7 @@
 
       
         <p>Tomcat服务控制脚本，加入系统服务，使用service控制启动</p>
-<p>###变量配置文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/sysconfig/tomcat </span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> TOMCAT_USER=tomcat</span><br><span class="line"><span class="built_in">export</span> CATALINA_HOME=/opt/tomcat</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/latest/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:JAVA_HOME/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:/usr/<span class="built_in">local</span>/j2sdk/lib/tools.jar:/usr/<span class="built_in">local</span>/j2re/lib/rt.jar</span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -XX:-UseGCOverheadLimit -Xms4096m -Xmx4096m -XX:PermSize=256m -XX:MaxNewSize=384m -XX:MaxPermSize=512m"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.port=6789"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.host=127.0.0.1"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.ssl=false"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.authenticate=true"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.access.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.access"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.password.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.passwd"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line"><span class="comment"># For shutdown ,we use STOP_OPTS, since a jmx bug</span></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line">STOP_OPTS=<span class="string">"<span class="variable">$CATALINA_OPTS</span> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_OPTS</span><br><span class="line"><span class="built_in">export</span> STOP_OPTS</span><br></pre></td></tr></table></figure>
+<h3 id="变量配置文件"><a href="#变量配置文件" class="headerlink" title="变量配置文件"></a>变量配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">cat /etc/sysconfig/tomcat </span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> TOMCAT_USER=tomcat</span><br><span class="line"><span class="built_in">export</span> CATALINA_HOME=/opt/tomcat</span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/usr/java/latest/</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:JAVA_HOME/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:/usr/<span class="built_in">local</span>/j2sdk/lib/tools.jar:/usr/<span class="built_in">local</span>/j2re/lib/rt.jar</span><br><span class="line">JAVA_OPTS=<span class="string">"<span class="variable">$JAVA_OPTS</span> -XX:-UseGCOverheadLimit -Xms4096m -Xmx4096m -XX:PermSize=256m -XX:MaxNewSize=384m -XX:MaxPermSize=512m"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.port=6789"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.host=127.0.0.1"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.ssl=false"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.authenticate=true"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.access.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.access"</span></span><br><span class="line">JAVA_OPTS=<span class="variable">$JAVA_OPTS</span><span class="string">" -Dcom.sun.management.jmxremote.password.file=<span class="variable">$CATALINA_HOME</span>/conf/jmxremote.passwd"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line"><span class="comment"># For shutdown ,we use STOP_OPTS, since a jmx bug</span></span><br><span class="line"><span class="comment">###################################################</span></span><br><span class="line">STOP_OPTS=<span class="string">"<span class="variable">$CATALINA_OPTS</span> -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> JAVA_OPTS</span><br><span class="line"><span class="built_in">export</span> STOP_OPTS</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -380,7 +376,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量配置文件"><span class="nav-number">1.</span> <span class="nav-text">变量配置文件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统/" style="font-size: 10px;">系统</a>
+						<a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 18px;">secure</a> <a href="/tags/shell/" style="font-size: 16px;">shell</a> <a href="/tags/系统/" style="font-size: 12px;">系统</a>
 					</div>
 				</section>
 				
@@ -178,11 +178,11 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
-    <article id="post-Nginx安装" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-OSI参考模型" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/Nginx安装/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.341Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/08/OSI参考模型/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.303Z" itemprop="datePublished">2016-04-08</time>
 </a>
     </div>
   
@@ -195,7 +195,189 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/Nginx安装/">Nginx介绍</a>
+      <a class="article-title" href="/2016/04/08/OSI参考模型/">OSI参考模型</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>OSI(Open System Interconnect)，即开放式系统互联。 一般都叫OSI参考模型，是ISO(国际标准化组织)组织在1985年研究的网络互联模型。该体系结构标准定义了网络互连的七层框架(物理层、数据链路层、网络层、传输层、会话层、表示层和应用层)，即ISO开放系统互连参考模型。在这一框架下进一步详细规定了每一层的功能，以实现开放系统环境中的互连性、互操作性和应用的可移植性。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/08/OSI参考模型/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Nginx日志切割" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/Nginx日志切割/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.301Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/Nginx日志切割/">Nginx日志切割</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>nginx的日志切割可以自己写脚本实现，也可以在配置文件中定义</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#! /bin/bash</span><br><span class="line">datedir=`date +&apos;%Y-%m-%d-%H-%M-%S&apos; `</span><br><span class="line">/bin/mkdir /var/log/nginx/$datedir &gt;/dev/null 2&gt;&amp;1 </span><br><span class="line">/bin/mv /var/log/nginx/*.log /var/log/nginx/$datedir /bin/kill -HUP `cat /var/run/nginx.pid`</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Nginx定义日志格式" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/Nginx定义日志格式/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.301Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/Nginx定义日志格式/">Nginx定义日志格式</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>nginx有一个非常灵活的日志记录模式。每个级别的配置可以有各自独立的访问日志。日志格式通过log_format命令来定义。ngx_http_log_module是用来定义请求日志格式的<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/08/Nginx定义日志格式/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Nginx安装" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/Nginx安装/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.299Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/Nginx安装/">Nginx介绍</a>
     </h1>
   
 
@@ -220,7 +402,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/07/Nginx安装/#more">more >></a>
+          <a  href="/2016/04/08/Nginx安装/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -242,8 +424,8 @@ var _hmt = _hmt || [];
     <article id="post-MySQL跳转" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/MySQL跳转/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.339Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/08/MySQL跳转/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.298Z" itemprop="datePublished">2016-04-08</time>
 </a>
     </div>
   
@@ -256,7 +438,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/MySQL跳转/">MySQL跳转</a>
+      <a class="article-title" href="/2016/04/08/MySQL跳转/">MySQL跳转</a>
     </h1>
   
 
@@ -281,192 +463,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/07/MySQL跳转/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MySQL管理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/MySQL管理/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.337Z" itemprop="datePublished">2016-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/MySQL管理/">MySQL管理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/07/MySQL管理/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MySQL用户权限" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/MySQL用户权限/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.335Z" itemprop="datePublished">2016-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/MySQL用户权限/">MySQL用户权限</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>询问几个简单的问题来识别GRANT语句的种类：<br>　　谁能连接，从那儿连接？<br>　　用户应该有什么级别的权限，他们适用于什么？<br>　　用户应该允许管理权限吗？<br>当客户端试图连接时，服务器浏览排序的条目并使用找到的第一匹配</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/07/MySQL用户权限/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-MySQL备份" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/MySQL备份/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.333Z" itemprop="datePublished">2016-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/MySQL备份/">MySQL备份</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>备份的作用：<br>迁移或升级数据库时<br>增加从库时<br>因硬件或特殊异常情况，（主库或从库宕机，主从可以互相切换，无需备份）<br>认为的DDL、DML语句，主从没办法，所有库都会执行。此时需要备份<br>跨机房灾备，需要备份到异地</p>
-</blockquote>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/07/MySQL备份/#more">more >></a>
+          <a  href="/2016/04/08/MySQL跳转/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -487,7 +484,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/7/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/">Next &raquo;</a>
     </nav>
   
 </div>

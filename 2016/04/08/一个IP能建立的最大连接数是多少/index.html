@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>一个IP能建立的最大连接数是多少? | 运维</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在探讨这个问题前，我们先假设一种经典的连接模型：Client -&amp;gt; Load Balancer-&amp;gt; RealServer Pool，并且我们假设这里使用NAT模式的负载均衡，在这种模式下:负载均衡器只留给客户端一个公网IP地址(VIP);客户端发来的请求都被负载均衡器端截，然后通过调度算法转发到RealServer Pool里面的某台服务器;这些RealServer都在一个私有网络里">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个IP能建立的最大连接数是多少?">
+<meta property="og:url" content="http://yoursite.com/2016/04/08/一个IP能建立的最大连接数是多少/index.html">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="在探讨这个问题前，我们先假设一种经典的连接模型：Client -&amp;gt; Load Balancer-&amp;gt; RealServer Pool，并且我们假设这里使用NAT模式的负载均衡，在这种模式下:负载均衡器只留给客户端一个公网IP地址(VIP);客户端发来的请求都被负载均衡器端截，然后通过调度算法转发到RealServer Pool里面的某台服务器;这些RealServer都在一个私有网络里">
+<meta property="og:updated_time" content="2016-04-07T07:52:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一个IP能建立的最大连接数是多少?">
+<meta name="twitter:description" content="在探讨这个问题前，我们先假设一种经典的连接模型：Client -&amp;gt; Load Balancer-&amp;gt; RealServer Pool，并且我们假设这里使用NAT模式的负载均衡，在这种模式下:负载均衡器只留给客户端一个公网IP地址(VIP);客户端发来的请求都被负载均衡器端截，然后通过调度算法转发到RealServer Pool里面的某台服务器;这些RealServer都在一个私有网络里">
+  
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4c2f0014983c0b14412048e1d848cb3c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+
+		<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+			<label>Search</label>
+			<input type="text" id="st-search-input" class="st-search-input_my" maxlength="30" placeholder="Search" />
+		</form>
+	
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/photo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/系统/index.html">系统管理</a></li>
+				        
+							<li><a href="/tags/shell/index.html">shell</a></li>
+				        
+							<li><a href="/tags/nginx/index.html">Nginx</a></li>
+				        
+							<li><a href="/tags/mysql/index.html">mysql</a></li>
+				        
+							<li><a href="/tags/secure/index.html">iptables</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 18px;">secure</a> <a href="/tags/shell/" style="font-size: 16px;">shell</a> <a href="/tags/系统/" style="font-size: 12px;">系统</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/photo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">破浪</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/系统/index.html">系统管理</a></li>
+		        
+					<li><a href="/tags/shell/index.html">shell</a></li>
+		        
+					<li><a href="/tags/nginx/index.html">Nginx</a></li>
+		        
+					<li><a href="/tags/mysql/index.html">mysql</a></li>
+		        
+					<li><a href="/tags/secure/index.html">iptables</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-一个IP能建立的最大连接数是多少" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/一个IP能建立的最大连接数是多少/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.328Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      一个IP能建立的最大连接数是多少?
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/network/">network</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>在探讨这个问题前，我们先假设一种经典的连接模型：Client -&gt; Load Balancer-&gt; RealServer Pool，并且我们假设这里使用NAT模式的负载均衡，在这种模式下:<br>负载均衡器只留给客户端一个公网IP地址(VIP);<br>客户端发来的请求都被负载均衡器端截，然后通过调度算法转发到RealServer Pool里面的某台服务器;<br>这些RealServer都在一个私有网络里面，对外不可见;<br>负载均衡器转发请求到真实服务器(RealServer)的时候同时做了NAT，真实服务器看到的连接都是来自负载均衡器的(和真实服务器在一个私有网络的IP)。<br><a id="more"></a></p>
+</blockquote>
+<p><br></p>
+<h2 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h2><p>我们从Client Side(Client-&gt;Load Balancer)来分析：<br>这端的连接都由SourceIP:SoucePort-&gt;DesIP:DesPort唯一标识，所以对我们来说，能支持的连接数仅仅受限于负载均衡器的内存数(连接数可以是65000+)，因为DesIP和DesPort都是已知的唯一的(比如IP:80).</p>
+<h2 id="然后"><a href="#然后" class="headerlink" title="然后"></a>然后</h2><p>再从Server Side(Load Balancer-&gt;RealServer)来分析：<br>这端的连接数刚好相反，每个连接都由负载均衡器的IP(这里称MIP:Mapped IP)和随机的端口进行标识。<br>即： MIP:RandomPort -&gt; RealServerIP:80<br>这样，因为负载均衡器的端口也受限于TCP/IP的最大端口数64k(65536)限制，因此最多只能建立64k的服务器连接(server connnections).</p>
+<p>由于瓶颈很可能就出现在服务器端连接上，针对这种情况，各负载均衡器厂家是怎么解决的呢？</p>
+<h2 id="负载均衡产生解决方案"><a href="#负载均衡产生解决方案" class="headerlink" title="负载均衡产生解决方案"></a>负载均衡产生解决方案</h2><h4 id="1-NetScaler"><a href="#1-NetScaler" class="headerlink" title="1. NetScaler"></a>1. NetScaler</h4><p>我们首先来看NetScaler的解决办法，NetScaler的解决办法很简单，增加MIP的个数，这样最大的服务器连接数将变成：MaxServerConnections = 65536 * MIP数</p>
+<h4 id="2-F5"><a href="#2-F5" class="headerlink" title="2. F5"></a>2. F5</h4><p>F5其实也使用了一样的办法，但是F5首先建立一个Source-NAT pool,然后在SNAT Pool里面加入多个IP地址。这样得到的最大连接数和NetScaler完全一样：<br>SA:SP -&gt; DA:DP<br>10.1.1.1:1024 -&gt; 10.1.1.100:80<br>10.1.1.2:1024 -&gt; 10.1.1.100:80<br>PS: 这里10.1.1.1和10.1.1.2都在一个SNAT pool里面。</p>
+<h2 id="最大连接上受限因素"><a href="#最大连接上受限因素" class="headerlink" title="最大连接上受限因素"></a>最大连接上受限因素</h2><p>上述情况都是理论计算值，真实环境下的最大连接数还受限于各种因素：</p>
+<ul>
+<li>每个连接都要耗费一定的资源，比如CPU、MEM，所以，真实值往往很难达到理论值；</li>
+<li>根据协议的不同，能达到的最大连接数也不一样，比如HTTP/1.0连接的创建和关闭都非常快，而且浏览器对并发连接数有限制，所以，很难达到最大的理论 值。HTTP/1.1支持流线技术，多个请求可以复用一个连接，这样就大大减少了并发连接数。FTP或者telnet连接都是长连接，很容易达到最大值；</li>
+<li>很多设备(比如NetScaler)在服务器端都支持连接池(连接复用)，里面的连接都是长连接，一样实现了HTTP/1.1里面的流线技术，一个连接就可以处理多个客户端连接。这样除了减少连接资源，同时还减少了负载均衡器的其他资源开销，同时减低了内网的带宽；</li>
+<li>一些设备(比如NetScaler的TCP-OFFLOAD)支持TCP卸载，仅仅把已经建立的连接发到服务器端，而TCP的三次握手完全有负载均衡器接管，这样，服务器端的连接就成倍的减少。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/08/使用MySQL需要注意的地方/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          使用MySQL需要注意的地方
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/08/vmstat/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vmstat监控系统性能</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="一个IP能建立的最大连接数是多少" data-title="一个IP能建立的最大连接数是多少?" data-url="http://yoursite.com/2016/04/08/一个IP能建立的最大连接数是多少/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 破浪
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','zBCZSGw5qcsdvjb6X4oy','2.0.0');
+</script>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

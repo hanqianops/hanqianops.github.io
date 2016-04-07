@@ -118,7 +118,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 17.5px;">secure</a> <a href="/tags/shell/" style="font-size: 15px;">shell</a> <a href="/tags/系统/" style="font-size: 10px;">系统</a>
+						<a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 18px;">secure</a> <a href="/tags/shell/" style="font-size: 16px;">shell</a> <a href="/tags/系统/" style="font-size: 12px;">系统</a>
 					</div>
 				</section>
 				
@@ -178,11 +178,11 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
-    <article id="post-FastCGI相关参数" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-MySQL管理" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/FastCGI相关参数/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.332Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/08/MySQL管理/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.297Z" itemprop="datePublished">2016-04-08</time>
 </a>
     </div>
   
@@ -195,7 +195,192 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/FastCGI相关参数/">FastCGI相关参数</a>
+      <a class="article-title" href="/2016/04/08/MySQL管理/">MySQL管理</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，目前属于 Oracle 旗下公司。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/08/MySQL管理/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MySQL用户权限" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/MySQL用户权限/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.295Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/MySQL用户权限/">MySQL用户权限</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>询问几个简单的问题来识别GRANT语句的种类：<br>　　谁能连接，从那儿连接？<br>　　用户应该有什么级别的权限，他们适用于什么？<br>　　用户应该允许管理权限吗？<br>当客户端试图连接时，服务器浏览排序的条目并使用找到的第一匹配</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/08/MySQL用户权限/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-MySQL备份" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/MySQL备份/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.292Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/MySQL备份/">MySQL备份</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>备份的作用：<br>迁移或升级数据库时<br>增加从库时<br>因硬件或特殊异常情况，（主库或从库宕机，主从可以互相切换，无需备份）<br>认为的DDL、DML语句，主从没办法，所有库都会执行。此时需要备份<br>跨机房灾备，需要备份到异地</p>
+</blockquote>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/08/MySQL备份/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-FastCGI相关参数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/FastCGI相关参数/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.291Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/FastCGI相关参数/">FastCGI相关参数</a>
     </h1>
   
 
@@ -220,68 +405,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/07/FastCGI相关参数/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-DNAT目标地址转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/DNAT目标地址转换/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.331Z" itemprop="datePublished">2016-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/DNAT目标地址转换/">DNAT目标地址转换</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>作用是根据指定条件修改目标IP地址和端口，使用PREROUTING链，实现外网访问内网。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/07/DNAT目标地址转换/#more">more >></a>
+          <a  href="/2016/04/08/FastCGI相关参数/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -303,8 +427,8 @@ var _hmt = _hmt || [];
     <article id="post-CentOS服务器下对mysql的优化" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/07/CentOS服务器下对mysql的优化/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.327Z" itemprop="datePublished">2016-04-07</time>
+      <a href="/2016/04/08/CentOS服务器下对mysql的优化/" class="article-date">
+  	<time datetime="2016-04-07T16:12:07.289Z" itemprop="datePublished">2016-04-08</time>
 </a>
     </div>
   
@@ -317,7 +441,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/CentOS服务器下对mysql的优化/">CentOS服务器下对mysql的优化</a>
+      <a class="article-title" href="/2016/04/08/CentOS服务器下对mysql的优化/">CentOS服务器下对mysql的优化</a>
     </h1>
   
 
@@ -343,129 +467,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/07/CentOS服务器下对mysql的优化/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-404错误页面" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/07/404错误页面/" class="article-date">
-  	<time datetime="2016-04-07T06:22:53.294Z" itemprop="datePublished">2016-04-07</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/07/404错误页面/">Nginx 404错误页面</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>如果碰巧网站出了问题，或者用户试图访问一个并不存在的页面时，此时服务器会返回代码为404的错误信息，此时对应页面就是404页面。404页面的默认内容和具体的服务器有关。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/07/404错误页面/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-一次关于session的实践" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/05/一次关于session的实践/" class="article-date">
-  	<time datetime="2016-04-05T03:02:01.000Z" itemprop="datePublished">2016-04-05</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/05/一次关于session的实践/">一次关于session的实践</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>Session:在计算机中，尤其是在网络应用中，称为“会话控制”。Session 对象存储特定用户会话所需的信息。这样，当用户在应用程序的 Web 页之间跳转时，存储在 Session 对象中的变量将不会丢失，而是在整个用户会话中一直存在下去。当用户请求来自应用程序的 Web 页时，如果该用户还没有会话，则 Web 服务器将自动创建一个 Session 对象。当会话过期或被放弃后，服务器将终止该会话。Session 对象最常见的一个用法就是存储用户的首选项。例如，如果用户指明不喜欢查看图形，就可以将该信息存储在 Session 对象中。有关使用 Session 对象的详细信息，请参阅“ASP 应用程序”部分的“管理会话”。注意 会话状态仅在支持 cookie 的浏览器中保留。<br>以上是百度百科对session的解释<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/05/一次关于session的实践/#more">more >></a>
+          <a  href="/2016/04/08/CentOS服务器下对mysql的优化/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -486,7 +488,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+      <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next &raquo;</a>
     </nav>
   
 </div>

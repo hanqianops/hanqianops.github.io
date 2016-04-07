@@ -12,14 +12,14 @@
 <meta property="og:url" content="http://yoursite.com/2016/04/07/TCP三次握手/index.html">
 <meta property="og:site_name" content="运维">
 <meta property="og:description" content="TCP是面向连接的、可靠的进程到进程通信的协议。提供全双工服务，即数据可在同一时间双向传输每一个TCP都有发送缓存和接受缓存，用来临时存储数据TCP将若干个字节构成一个分组，叫做报文段，封装在IP数据包中">
-<meta property="og:image" content="http://yoursite.com/imgs/tcp.png">
+<meta property="og:image" content="http://yoursite.com/img/tcp.png">
 <meta property="og:image" content="http://yoursite.com/imgs/dtcp.png">
-<meta property="og:image" content="http://yoursite.com/imgs/tcpsb.png">
-<meta property="og:updated_time" content="2015-06-24T16:05:09.000Z">
+<meta property="og:image" content="http://yoursite.com/img/tcpsb.png">
+<meta property="og:updated_time" content="2016-04-07T06:22:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="TCP三次握手">
 <meta name="twitter:description" content="TCP是面向连接的、可靠的进程到进程通信的协议。提供全双工服务，即数据可在同一时间双向传输每一个TCP都有发送缓存和接受缓存，用来临时存储数据TCP将若干个字节构成一个分组，叫做报文段，封装在IP数据包中">
-<meta name="twitter:image" content="http://yoursite.com/imgs/tcp.png">
+<meta name="twitter:image" content="http://yoursite.com/img/tcp.png">
   
     <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
   
@@ -185,7 +185,7 @@ var _hmt = _hmt || [];
   
     <div class="article-meta">
       <a href="/2016/04/07/TCP三次握手/" class="article-date">
-  	<time datetime="2016-04-07T06:07:47.591Z" itemprop="datePublished">2016-04-07</time>
+  	<time datetime="2016-04-07T06:22:53.349Z" itemprop="datePublished">2016-04-07</time>
 </a>
     </div>
   
@@ -221,14 +221,14 @@ var _hmt = _hmt || [];
         <blockquote>
 <p>TCP是面向连接的、可靠的进程到进程通信的协议。<br>提供全双工服务，即数据可在同一时间双向传输<br>每一个TCP都有发送缓存和接受缓存，用来临时存储数据<br>TCP将若干个字节构成一个分组，叫做报文段，封装在IP数据包中<br><a id="more"></a></p>
 </blockquote>
-<p><br><br><img src="/imgs/tcp.png" alt="tcp三次握手建立过程"></p>
+<p><br><br><img src="/img/tcp.png" alt="tcp三次握手建立过程"></p>
 <p>在建立连接的时候，客户端首先向服务器申请打开某一个端口(用SYN段等于1的TCP报文)，然后服务器端发回一个ACK报文通知客户端请求报文收到，客户端收到确认报文以后再次发出确认报文确认刚才服务器端发出的确认报文（绕口么），至此，连接的建立完成。这就叫做三次握手。如果打算让双方都做好准备的话，一定要发送三次报文，而且只需要三次报文就可以了。如果再加上TCP的超时重传机制，那么TCP就完全可以保证一个数据包被送到目的地。</p>
 <p> 1）客户端发送 SYN 消息，其中包含服务器的端口和客户端的初始序列号（seq）到服务器（活动打开）。<br> 2）服务器会发送回SYN和ACK（其中包括的客户端的 seq+ 1）。<br> 3）客户端发送一个 ACK，（其中包括的服务器的 seq + 1）。</p>
 <p> <br><br> <br></p>
 <p><img src="/imgs/dtcp.png" alt="tcp三次握手建立过程"><br>TCP有一个特别的概念叫做half-close，这个概念是说，TCP的连接是全双工（可以同时发送和接收）连接，因此在关闭连接的时候，必须关闭传和送两个方向上的连接。客户机给服务器一个FIN为1的TCP报文，然后服务器返回给客户端一个确认ACK报文，并且发送一个FIN报文，当客户机回复ACK报文后（四次握手），连接就结束了。</p>
 <p>1）客户端发送一个FIN（活动收盘）。这是一个现在半关闭连接。客户端不能再将数据发送，但仍然能够从服务器接收数据。收到此 FIN 服务器进入被动关闭状态。<br>2）服务器发送一个ACK（这时客户端 FIN 序列 + 1）<br>3）服务器发送其自身FIN。<br>4）客户端发送一个ACK（这是服务器的 FIN 序列 + 1）。收到此 ACK 服务器关闭连接。</p>
 <p><br><br><br></p>
-<h1 id="TCP报文段的首部格式"><a href="#TCP报文段的首部格式" class="headerlink" title="TCP报文段的首部格式"></a>TCP报文段的首部格式</h1><p><img src="/imgs/tcpsb.png" alt="tcpgeshi"></p>
+<h1 id="TCP报文段的首部格式"><a href="#TCP报文段的首部格式" class="headerlink" title="TCP报文段的首部格式"></a>TCP报文段的首部格式</h1><p><img src="/img/tcpsb.png" alt="tcpgeshi"></p>
 <p><br></p>
 <h2 id="控制位TCP的连接、传输和断开都由此控制"><a href="#控制位TCP的连接、传输和断开都由此控制" class="headerlink" title="控制位TCP的连接、传输和断开都由此控制"></a>控制位<strong>TCP的连接、传输和断开都由此控制</strong></h2><ul>
 <li>URG：紧急指针有效位</li>

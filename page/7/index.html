@@ -178,11 +178,11 @@ var _hmt = _hmt || [];
 
       <div class="body-wrap">
   
-    <article id="post-Tomcat-Server-Script" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-MySQL备份" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/12/Tomcat-Server-Script/" class="article-date">
-  	<time datetime="2016-04-12T03:59:11.102Z" itemprop="datePublished">2016-04-12</time>
+      <a href="/2016/04/12/MySQL备份/" class="article-date">
+  	<time datetime="2016-04-12T04:01:16.999Z" itemprop="datePublished">2016-04-12</time>
 </a>
     </div>
   
@@ -195,7 +195,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/12/Tomcat-Server-Script/">Tomcat Server Script</a>
+      <a class="article-title" href="/2016/04/12/MySQL备份/">MySQL备份</a>
     </h1>
   
 
@@ -205,129 +205,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>Tomcat服务控制脚本，加入系统服务，使用service控制启动。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/12/Tomcat-Server-Script/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-TCP三次握手" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/12/TCP三次握手/" class="article-date">
-  	<time datetime="2016-04-12T03:59:11.101Z" itemprop="datePublished">2016-04-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/12/TCP三次握手/">TCP三次握手</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>TCP是面向连接的、可靠的进程到进程通信的协议。<br>提供全双工服务，即数据可在同一时间双向传输<br>每一个TCP都有发送缓存和接受缓存，用来临时存储数据<br>TCP将若干个字节构成一个分组，叫做报文段，封装在IP数据包中<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/12/TCP三次握手/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-SNAT源地址转换" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/12/SNAT源地址转换/" class="article-date">
-  	<time datetime="2016-04-12T03:59:11.100Z" itemprop="datePublished">2016-04-12</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/12/SNAT源地址转换/">SNAT源地址转换</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>当局域网PC访问internet的数据包到达网关服务器时，会<strong>先进行路由选择</strong>；若发现该数据包需要从外网借口向外转发，则<strong>将其源IP地址修改为网关的外网借口地址</strong>，然后再发送给目标主机；网关服务器会根据之前建立的SNAT映射，将正确的响应数据包返回局域网中的源主机。</p>
+<p>备份的作用：<br>迁移或升级数据库时<br>增加从库时<br>因硬件或特殊异常情况，（主库或从库宕机，主从可以互相切换，无需备份）<br>认为的DDL、DML语句，主从没办法，所有库都会执行。此时需要备份<br>跨机房灾备，需要备份到异地</p>
 </blockquote>
       
     </div>
@@ -336,6 +214,128 @@ var _hmt = _hmt || [];
       
       
 	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/12/MySQL备份/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-FastCGI相关参数" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/FastCGI相关参数/" class="article-date">
+  	<time datetime="2016-04-12T04:01:16.998Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/12/FastCGI相关参数/">FastCGI相关参数</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/12/FastCGI相关参数/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-DNAT目标地址转换" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/DNAT目标地址转换/" class="article-date">
+  	<time datetime="2016-04-12T04:01:16.997Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/12/DNAT目标地址转换/">DNAT目标地址转换</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>作用是根据指定条件修改目标IP地址和端口，使用PREROUTING链，实现外网访问内网。<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/secure/">secure</a></li></ul>
 	</div>
 
@@ -343,7 +343,7 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/12/SNAT源地址转换/#more">more >></a>
+          <a  href="/2016/04/12/DNAT目标地址转换/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -362,11 +362,11 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-PHP-FPM错误日志" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-CentOS服务器下对mysql的优化" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/12/PHP-FPM错误日志/" class="article-date">
-  	<time datetime="2016-04-12T03:59:11.099Z" itemprop="datePublished">2016-04-12</time>
+      <a href="/2016/04/12/CentOS服务器下对mysql的优化/" class="article-date">
+  	<time datetime="2016-04-12T04:01:16.996Z" itemprop="datePublished">2016-04-12</time>
 </a>
     </div>
   
@@ -379,7 +379,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/12/PHP-FPM错误日志/">PHP-FPM错误日志</a>
+      <a class="article-title" href="/2016/04/12/CentOS服务器下对mysql的优化/">CentOS服务器下对mysql的优化</a>
     </h1>
   
 
@@ -389,7 +389,8 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>php的错误信息，默认失败显示的，如果程序出错不好排除，在这里开启错误日志<br>
+<p>本文转自微信公众号，原文地址：<a href="http://mp.weixin.qq.com/s?__biz=MzAxOTAzMzEzNg==&amp;mid=204609254&amp;idx=2&amp;sn=7a1c9b6cd13472b88c98b4976ec47a8b&amp;scene=24&amp;srcid=0327EtcgAdcZ90CJGGqTDDyl#rd">http://mp.weixin.qq.com/s?__biz=MzAxOTAzMzEzNg==&amp;mid=204609254&amp;idx=2&amp;sn=7a1c9b6cd13472b88c98b4976ec47a8b&amp;scene=24&amp;srcid=0327EtcgAdcZ90CJGGqTDDyl#rd</a></p>
+</blockquote>
       
     </div>
     
@@ -397,14 +398,14 @@ var _hmt = _hmt || [];
       
       
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nginx/">nginx</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
 	</div>
 
       
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/12/PHP-FPM错误日志/#more">more >></a>
+          <a  href="/2016/04/12/CentOS服务器下对mysql的优化/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>
@@ -423,11 +424,11 @@ var _hmt = _hmt || [];
 
 
   
-    <article id="post-PHP-FPM" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-CPU利用率和机器负载的关系和区别" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/12/PHP-FPM/" class="article-date">
-  	<time datetime="2016-04-12T03:59:11.098Z" itemprop="datePublished">2016-04-12</time>
+      <a href="/2016/04/12/CPU利用率和机器负载的关系和区别/" class="article-date">
+  	<time datetime="2016-04-12T04:01:16.995Z" itemprop="datePublished">2016-04-12</time>
 </a>
     </div>
   
@@ -440,7 +441,7 @@ var _hmt = _hmt || [];
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/12/PHP-FPM/">PHP-FPM</a>
+      <a class="article-title" href="/2016/04/12/CPU利用率和机器负载的关系和区别/">CPU利用率和机器负载的关系和区别</a>
     </h1>
   
 
@@ -450,7 +451,68 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>PHP-FPM是一个PHPFastCGI管理器，是只用于PHP的。<br>
+<p>当我们使用top命令查看系统的资源使用情况时会看到load average，如下图所示。它表示系统在1,5,15分钟的平均工作负载。那么什么事负载(load)呢？它和cpu的利用率又有什么关系呢？ 原文地址:<a href="https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/">https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/</a><br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统/">系统</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/12/CPU利用率和机器负载的关系和区别/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-404错误页面" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/404错误页面/" class="article-date">
+  	<time datetime="2016-04-12T04:01:16.988Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/12/404错误页面/">Nginx 404错误页面</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>如果碰巧网站出了问题，或者用户试图访问一个并不存在的页面时，此时服务器会返回代码为404的错误信息，此时对应页面就是404页面。404页面的默认内容和具体的服务器有关。<br>
       
     </div>
     
@@ -465,8 +527,60 @@ var _hmt = _hmt || [];
 
       
         <p class="article-more-link">
-          <a  href="/2016/04/12/PHP-FPM/#more">more >></a>
+          <a  href="/2016/04/12/404错误页面/#more">more >></a>
         </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-关于find结果不同的问题-1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/08/关于find结果不同的问题-1/" class="article-date">
+  	<time datetime="2016-04-07T16:11:44.000Z" itemprop="datePublished">2016-04-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/08/关于find结果不同的问题-1/">关于find结果不同的问题</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
       
       <div class="clearfix"></div>
     </div>
@@ -486,7 +600,7 @@ var _hmt = _hmt || [];
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/6/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">Next &raquo;</a>
     </nav>
   
 </div>

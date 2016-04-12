@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>CPU利用率和机器负载的关系和区别 | 运维</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="当我们使用top命令查看系统的资源使用情况时会看到load average，如下图所示。它表示系统在1,5,15分钟的平均工作负载。那么什么事负载(load)呢？它和cpu的利用率又有什么关系呢？ 原文地址:https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CPU利用率和机器负载的关系和区别">
+<meta property="og:url" content="http://yoursite.com/2016/04/12/CPU利用率和机器负载的关系和区别/index.html">
+<meta property="og:site_name" content="运维">
+<meta property="og:description" content="当我们使用top命令查看系统的资源使用情况时会看到load average，如下图所示。它表示系统在1,5,15分钟的平均工作负载。那么什么事负载(load)呢？它和cpu的利用率又有什么关系呢？ 原文地址:https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/">
+<meta property="og:updated_time" content="2016-04-07T07:57:10.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CPU利用率和机器负载的关系和区别">
+<meta name="twitter:description" content="当我们使用top命令查看系统的资源使用情况时会看到load average，如下图所示。它表示系统在1,5,15分钟的平均工作负载。那么什么事负载(load)呢？它和cpu的利用率又有什么关系呢？ 原文地址:https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/">
+  
+    <link rel="alternative" href="/atom.xml" title="运维" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?4c2f0014983c0b14412048e1d848cb3c";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+
+		<form class="search" action="/search/index.html" method="get" accept-charset="utf-8">
+			<label>Search</label>
+			<input type="text" id="st-search-input" class="st-search-input_my" maxlength="30" placeholder="Search" />
+		</form>
+	
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/photo.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">破浪</a></h1>
+		</hgroup>
+
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/系统/index.html">系统管理</a></li>
+				        
+							<li><a href="/tags/shell/index.html">shell</a></li>
+				        
+							<li><a href="/tags/nginx/index.html">Nginx</a></li>
+				        
+							<li><a href="/tags/mysql/index.html">mysql</a></li>
+				        
+							<li><a href="/tags/secure/index.html">iptables</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/mysql/" style="font-size: 14px;">mysql</a> <a href="/tags/network/" style="font-size: 10px;">network</a> <a href="/tags/nginx/" style="font-size: 20px;">nginx</a> <a href="/tags/secure/" style="font-size: 18px;">secure</a> <a href="/tags/shell/" style="font-size: 16px;">shell</a> <a href="/tags/系统/" style="font-size: 12px;">系统</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">破浪</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/photo.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">破浪</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/系统/index.html">系统管理</a></li>
+		        
+					<li><a href="/tags/shell/index.html">shell</a></li>
+		        
+					<li><a href="/tags/nginx/index.html">Nginx</a></li>
+		        
+					<li><a href="/tags/mysql/index.html">mysql</a></li>
+		        
+					<li><a href="/tags/secure/index.html">iptables</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-CPU利用率和机器负载的关系和区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/12/CPU利用率和机器负载的关系和区别/" class="article-date">
+  	<time datetime="2016-04-12T01:34:18.161Z" itemprop="datePublished">2016-04-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CPU利用率和机器负载的关系和区别
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/系统/">系统</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>当我们使用top命令查看系统的资源使用情况时会看到load average，如下图所示。它表示系统在1,5,15分钟的平均工作负载。那么什么事负载(load)呢？它和cpu的利用率又有什么关系呢？ 原文地址:<a href="https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/" target="_blank" rel="external">https://www.ttlsa.com/linux/linux-cpu-usage-and-load-average/</a><br><a id="more"></a></p>
+</blockquote>
+<p><br></p>
+<p>load average:系统平均负载是CPU的Load，它所包含的信息不是CPU的使用率状况，而是在一段时间内CPU正在处理以及等待CPU处理的进程数之和的统计信息，也就是CPU使用队列的长度的统计信息。这个数字越小越好</p>
+<h1 id="Cpu负载和cpu利用率的区别"><a href="#Cpu负载和cpu利用率的区别" class="headerlink" title="Cpu负载和cpu利用率的区别"></a>Cpu负载和cpu利用率的区别</h1><ul>
+<li>CPU利用率:显示的是程序在运行期间实时占用的CPU百分比</li>
+<li>CPU负载:显示的是一段时间内正在使用和等待使用CPU的平均任务数。CPU利用率高，并不意味着负载就一定大。举例来说：如果我有一个程序它需要一直使用cpu的运算功能，那么此时cpu的使用率可能达到100%，但是cpu的工作负载则是趋近于“1”，因为cpu仅负责一个工作嘛！如果同时执行这样的程序两个呢？cpu的使用率还是100%，但是工作负载则变成2了。所以也就是说，当cpu的工作负载越大，代表cpu必须要在不同的工作之间进行频繁的工作切换。<br>###　l 举例说明<br>网上有篇文章举了一个有趣比喻，拿打电话来说明两者的区别，我按自己的理解阐述一下。<br>某公用电话亭，有一个人在打电话，四个人在等待，每人限定使用电话一分钟，若有人一分钟之内没有打完电话，只能挂掉电话去排队，等待下一轮。电话在这里就相当于CPU，而正在或等待打电话的人就相当于任务数。<br>在电话亭使用过程中，肯定会有人打完电话走掉，有人没有打完电话而选择重新排队，更会有新增的人在这儿排队，这个人数的变化就相当于任务数的增减。为了统计平均负载情况，我们5分钟统计一次人数，并在第1、5、15分钟的时候对统计情况取平均值，从而形成第1、5、15分钟的平均负载。<br>有的人拿起电话就打，一直打完1分钟，而有的人可能前三十秒在找电话号码，或者在犹豫要不要打，后三十秒才真正在打电话。如果把电话看作CPU，人数看作任务，我们就说前一个人（任务）的CPU利用率高，后一个人（任务）的CPU利用率低。<br>当然， CPU并不会在前三十秒工作，后三十秒歇着，只是说，有的程序涉及到大量的计算，所以CPU利用率就高，而有的程序牵涉到计算的部分很少，CPU利用率自然就低。但无论CPU的利用率是高是低，跟后面有多少任务在排队没有必然关系。<h1 id="负载为多少才算比较理想？"><a href="#负载为多少才算比较理想？" class="headerlink" title="负载为多少才算比较理想？"></a>负载为多少才算比较理想？</h1>这个有争议，各有各的说法，个人比较赞同CPU负载小于等于0.5算是一种理想状态。<br>不管某个CPU的性能有多好，1秒钟能处理多少任务，我们可以认为它无关紧要，虽然事实并非如此。在评估CPU负载时，我们只以5分钟为单位为统计任务队列长度。如果每隔5分钟统计的时候，发现任务队列长度都是1，那么CPU负载就为1。假如我们只有一个单核的CPU，负载一直为1，意味着没有任务在排队，还不错。<br>但是我那台服务器，是双核又CPU，等于是有4个内核，每个内核的负载为1的话，总负载为4。这就是说，如果我那台服务器的CPU负载长期保持在4左右，还可以接受。<br>但是每个内核的负载为1，并不能算是一种理想状态！这意味着我们的CPU一直很忙，不得清闲。网上有说理想的状态是每个内核的负载为0.7左右，我比较赞同，0.7乘以内核数，得出服务器理想的CPU负载，比如我这台服务器，负载在3.0以下就可以。<h1 id="如何来降低服务器的CPU负载？"><a href="#如何来降低服务器的CPU负载？" class="headerlink" title="如何来降低服务器的CPU负载？"></a>如何来降低服务器的CPU负载？</h1>最简单办法的是更换性能更好的服务器，不要想着仅仅提高CPU的性能，那没有用，CPU要发挥出它最好的性能还需要其它软硬件的配合。<br>在服务器其它方面配置合理的情况下，CPU数量和CPU核心数（即内核数）都会影响到CPU负载，因为任务最终是要分配到CPU核心去处理的。两块CPU要比一块CPU好，双核要比单核好。<br>因此，我们需要记住，除去CPU性能上的差异，CPU负载是基于内核数来计算的！有一个说法，“有多少内核，即有多少负载”。<h1 id="CPU使用率到多少才算比较理想？"><a href="#CPU使用率到多少才算比较理想？" class="headerlink" title="CPU使用率到多少才算比较理想？"></a>CPU使用率到多少才算比较理想？</h1>CPU利用率在过去常常被我们这些外行认为是判断机器是否已经到了满负荷的一个标准，我看到长时间CPU使用率60-80%就认为机器有瓶颈出现。</li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/04/12/CentOS服务器下对mysql的优化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          CentOS服务器下对mysql的优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/04/12/404错误页面/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nginx 404错误页面</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="CPU利用率和机器负载的关系和区别" data-title="CPU利用率和机器负载的关系和区别" data-url="http://yoursite.com/2016/04/12/CPU利用率和机器负载的关系和区别/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 破浪
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','zBCZSGw5qcsdvjb6X4oy','2.0.0');
+</script>
+  </div>
+</footer>
+
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
